@@ -1,13 +1,16 @@
 #basketCount {
   background-color: #4079ff;
 }
+
 .searchBar input {
   outline: none;
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 13px;
   padding-left: 15px;
+  margin-left: 40px;
 }
+
 .navbar-brand {
   color: #4079ff !important;
 }
@@ -16,22 +19,26 @@
   background-color: transparent;
   border: none;
   color: #4079ff;
-  font-size: 15px;
+  font-size: 11px!important;
 }
+
 .navbar-nav button:hover {
   color: white;
 }
+
 .navlink {
   background-color: transparent;
   border: none;
   color: #4079ff;
-  font-size: 15px;
+  font-size: 11px!important;
   margin-left: 15px ;
   margin-right: 5px ;
 }
+
 .navlink:hover{
   color: white;
 }
+
 .navbar-toggler{
   border: 1px solid #4079ff!important;
   
@@ -47,12 +54,13 @@
     margin-top: 20px;
   }
 }
+
 @media only screen and (max-width: 991px) {
   .navbar-nav button {
     background-color: transparent !important;
     border: none !important;
     color: #4079ff !important;
-    font-size: 20px !important;
+    font-size: 17px !important;
     text-align: start;
     padding: 10px 0;
     margin: 0!important;
@@ -64,7 +72,7 @@
     background-color: transparent !important;
     border: none !important;
     color: #4079ff !important;
-    font-size: 20px !important;
+    font-size: 17px !important;
     margin-top: 10px;
     text-align: start;
     padding: 10px 0;
@@ -82,6 +90,9 @@
   .searchBar{
     width: 100%;
     margin-top: 20px;
+  }
+  .searchBar input{
+    margin: 0!important;
   }
 }
 

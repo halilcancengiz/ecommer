@@ -5,7 +5,7 @@ import "./navbar.css"
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
-            <div className="container p-0">
+            <div className="container-sm p-0">
                 <NavLink className="navbar-brand" to="/">E-Commer App</NavLink>
                 <button className="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span><i className="fa-solid fa-bars"></i></span>
@@ -16,7 +16,7 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-nav p-0 m-0 pe-0  justify-content-between ms-auto p-0">
                         <NavLink className="navlink my-auto" to="register"><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
-                        <NavLink className="navlink my-auto" to="login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Sign In</NavLink>
+                        <NavLink className="navlink my-auto" to="login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Login</NavLink>
                         <NavLink className="navlink my-auto" to="profile"><i className="me-2 fa-solid fa-user"></i>Profile</NavLink>
                         <button><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
                         <NavLink className="navlink my-auto" to="basket"><span id='basketCount' className="badge bg-white text-dark me-2">0</span>Basket</NavLink>
