@@ -28,27 +28,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-
-{/* <div className='searchBar col-lg-4 d-flex align-items-center justify-content-center'>
-                    <input className='w-75' type="search" placeholder='Search' />
-                </div>
-                <div id='navbarSupportedContent' className='navMenu col-lg-6'>
-                    <ul className='list-unstyled d-flex align-items-center justify-content-end h-100'>
-                        <li className='m-3'>
-                            <NavLink className="navlink" to=""><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
-                        </li>
-                        <li className='m-3'>
-                            <NavLink className="navlink" to=""><i className="me-2 fa-solid fa-right-to-bracket"></i>Sign In</NavLink>
-                        </li>
-                        <li className='m-3'>
-                            <NavLink className="navlink" to="profile"><i className="me-2 fa-solid fa-user"></i>Profile</NavLink>
-                        </li>
-                        <li className='m-3'>
-                            <button to="profile"><i className=" me-2 fa-solid fa-bell"></i>Notification</button>
-                        </li>
-                        <li className='m-3'>
-                            <NavLink className="navlink" to=""><span id='basketCount' className="badge me-2">0</span>Basket</NavLink>
-                        </li>
-                    </ul>
-                </div> */}
