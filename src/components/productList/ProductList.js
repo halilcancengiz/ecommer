@@ -24,7 +24,7 @@ const ProductList = () => {
                             <button >Sepete Ekle</button>
                         </div>
                         <button className="favorite rounded-circle d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-heart"></i>
+                            <i className="fa-solid fa-heart"></i>
                         </button>
                     </div>
                 </div>

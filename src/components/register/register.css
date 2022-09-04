@@ -21,7 +21,7 @@
 }
 .first {
   height: 40px;
-  width: 280px;
+  width: 260px;
   position: relative;
   box-shadow: 10px 10px 30px black;
   transition: all 0.5s ease-in-out;
@@ -62,7 +62,7 @@
 }
 .second {
   position: absolute;
-  width: 295px;
+  width: 274px;
   height: 15px;
   top: -15px;
   transition: all 0.5s ease-in-out;
@@ -85,7 +85,7 @@
 }
 .secondBtn {
   position: absolute;
-  width: 295px;
+  width: 274px;
   height: 15px;
   top: -15px;
   transition: all 0.5s ease-in-out;
@@ -108,7 +108,7 @@
 }
 .secondHeader {
   position: absolute;
-  width: 295px;
+  width: 274px;
   height: 15px;
   top: -15px;
   transition: all 0.5s ease-in-out;

@@ -5,7 +5,7 @@ import "./navbar.css"
 const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
-            <div className="container-sm p-0">
+            <div className="container ">
                 <NavLink className="navbar-brand" to="/">E-Commer App</NavLink>
                 <button className="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span><i className="fa-solid fa-bars"></i></span>

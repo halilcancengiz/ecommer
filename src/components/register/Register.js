@@ -1,10 +1,11 @@
 import React from 'react'
+import Navbar from '../navbar/Navbar'
 import "./register.css"
 
 const Register = () => {
     return (
         <div className='registerPageContainer d-flex align-items-center justify-content-center flex-column'>
-            <div className="d-flex align-items-center justify-content-center flex-column">
+            <div className="d-flex align-items-center justify-content-center flex-column me-3">
 
                 <div className="first mb-3">
                     <h3 id='registerHeader' className='text-uppercase text-white w-100 h-100'>Sign Up</h3>
