@@ -1,17 +1,15 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-const UserContext = createContext()
 
 
-
+const UserContext = createContext();
 export const userProvider = ({ children }) => {
-
 
 
     const values = {
 
 
     }
-    
+
     return (
         <UserContext.Provider value={values}>
             {children}

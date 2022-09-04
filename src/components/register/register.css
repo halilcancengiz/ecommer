@@ -41,6 +41,9 @@
   outline: none;
   border: none;
 }
+.first button:active{
+  transform: scale(1.009);
+}
 .first button:hover {
   background: linear-gradient(
     to top,

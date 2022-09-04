@@ -12,9 +12,13 @@ const Login = () => {
     setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
   }
 
+  const handleLoginSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div className='loginPageContainer d-flex align-items-center justify-content-center flex-column '>
-      <form className="d-flex align-items-center justify-content-center flex-column me-3">
+      <form onSubmit={handleLoginSubmit} className="d-flex align-items-center justify-content-center flex-column me-3">
 
         <div className="first mb-3">
           <h3 id='registerHeader' className='text-uppercase text-white w-100 h-100'>Login</h3>
