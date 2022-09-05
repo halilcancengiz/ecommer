@@ -15,59 +15,34 @@
   color: #4079ff !important;
 }
 
-.navbar-nav button {
-  background-color: transparent;
-  border: none;
-  color: #4079ff;
-  font-size: 11px!important;
-}
-
-.navbar-nav button:hover {
-  color: white;
-}
-
 .navlink {
   background-color: transparent;
   border: none;
   color: #4079ff;
-  font-size: 11px!important;
-  margin-left: 15px ;
-  margin-right: 5px ;
+  font-size: 11px !important;
+  margin-left: 15px;
+  margin-right: 5px;
 }
 
-.navlink:hover{
+.navlink:hover {
   color: white;
 }
 
-.navbar-toggler{
-  border: 1px solid #4079ff!important;
-  
+.navbar-toggler {
+  border: 1px solid #4079ff !important;
 }
 
-.fa-bars{
+.fa-bars {
   color: #4079ff;
 }
 
-
 @media only screen and (max-width: 300px) {
-  .searchBar{
+  .searchBar {
     margin-top: 20px;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  .navbar-nav button {
-    background-color: transparent !important;
-    border: none !important;
-    color: #4079ff !important;
-    font-size: 17px !important;
-    text-align: start;
-    padding: 10px 0;
-    margin: 0!important;
-  }
-  .navbar-nav button:hover {
-    color: white!important;
-  }
   .navlink {
     background-color: transparent !important;
     border: none !important;
@@ -76,9 +51,9 @@
     margin-top: 10px;
     text-align: start;
     padding: 10px 0;
-    margin: 0!important;
+    margin: 0 !important;
   }
-  .navlink:hover{
+  .navlink:hover {
     color: white !important;
   }
   .navlink i {
@@ -87,13 +62,11 @@
   .navbar-nav button i {
     margin-left: 0;
   }
-  .searchBar{
+  .searchBar {
     width: 100%;
     margin-top: 20px;
   }
-  .searchBar input{
-    margin: 0!important;
+  .searchBar input {
+    margin: 0 !important;
   }
 }
-
-

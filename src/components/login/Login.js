@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useUserContext } from '../../context/UserContext'
 import "../register/register.css"
 
 const Login = () => {
+
+  const { login, setIsLoggedIn } = useUserContext()
 
   const [userLogin, setUserLogin] = useState({
     email: "",
@@ -12,8 +15,12 @@ const Login = () => {
     setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
   }
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault()
+    const user = await login(userLogin.email, userLogin.password)
+    localStorage.setItem("isLoggedIn", true)
+    console.log(user);
+    setIsLoggedIn(true)
   }
 
   return (
@@ -29,13 +36,14 @@ const Login = () => {
           <div className='second'></div><div className='third'></div>
         </div>
         <div className="first mt-4">
-          <input onChange={handleUserLogin} value={userLogin.password} name="password" type="text" className='w-100 h-100' placeholder='Password' />
+          <input onChange={handleUserLogin} value={userLogin.password} name="password" type="password" className='w-100 h-100' placeholder='Password' />
           <div className='second'></div><div className='third'></div>
         </div>
         <div className="first mt-4">
-          <button type="submit" className='w-100 h-100'>Kayıt Ol</button>
+          <button type="submit" className='w-100 h-100'>Giriş Yap</button>
           <div className='secondBtn'></div><div className='thirdBtn'></div>
         </div>
+
       </form>
     </div>
   )

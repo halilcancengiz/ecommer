@@ -1,8 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import "./navbar.css"
+import { useUserContext } from '../../context/UserContext'
+import { alertify } from 'alertifyjs';
 
 const Navbar = () => {
+    const { isLoggedIn, signOut } = useUserContext()
+
+    const currentUserLogOut = () => {
+        signOut()
+        localStorage.setItem("isLoggedIn", false)
+        alertify.success("Logout Successful")
+    }
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container ">
@@ -18,13 +27,17 @@ const Navbar = () => {
                         <NavLink className="navlink my-auto" to="register"><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
                         <NavLink className="navlink my-auto" to="login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Login</NavLink>
                         <NavLink className="navlink my-auto" to="profile"><i className="me-2 fa-solid fa-user"></i>Profile</NavLink>
-                        <button><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
+                        <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
                         <NavLink className="navlink my-auto" to="basket"><span id='basketCount' className="badge bg-white text-dark me-2">0</span>Basket</NavLink>
+                        <button onClick={currentUserLogOut} className="navlink my-auto">Log Out</button>
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
     )
 }
 
 export default Navbar
+
+
+// className={`${isLoggedIn === false ? "navlink my-auto" : "d-none"}`}

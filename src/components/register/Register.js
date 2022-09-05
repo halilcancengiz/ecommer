@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { register } from '../../Firebase'
+import { useUserContext } from '../../context/UserContext'
 import "./register.css"
 
 const Register = () => {
+
+    const { register } = useUserContext()
 
     const [userRegister, setUserRegister] = useState({
         email: "",
@@ -15,9 +17,11 @@ const Register = () => {
 
     const addUserToDb = async (e) => {
         e.preventDefault()
+
         const user = await register(userRegister.email, userRegister.password)
         console.log(user);
     }
+
     return (
         <div className='registerPageContainer d-flex align-items-center justify-content-center flex-column'>
             <form onSubmit={addUserToDb} className="d-flex align-items-center justify-content-center flex-column me-3">
@@ -39,7 +43,7 @@ const Register = () => {
                     <div className='second'></div><div className='third'></div>
                 </div>
                 <div className="first mt-4">
-                    <button disabled={!userRegister.email || !userRegister.password || !userRegister.rePassword} type="submit" className='w-100 h-100'>Kayıt Ol</button>
+                    <button type="submit" className='w-100 h-100'>Kayıt Ol</button>
                     <div className='secondBtn'></div><div className='thirdBtn'></div>
                 </div>
             </form>

@@ -2,10 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .App {
   text-align: center;
-  font-family: "Roboto Condensed", sans-serif;
+  
 }
 
+
+.ajs-error,.ajs-success {
+  color: white;
+  padding: 5px!important;
+  margin-bottom:20px!important;
+  font-size: 13px!important;
+  font-family: "Roboto Condensed", sans-serif!important;
+}
