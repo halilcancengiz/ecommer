@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useUserContext } from '../../context/UserContext'
 import "../register/register.css"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const { login, setIsLoggedIn } = useUserContext()
-
+  let navigate = useNavigate();
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: ""
@@ -18,9 +19,9 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     const user = await login(userLogin.email, userLogin.password)
-    localStorage.setItem("isLoggedIn", true)
-    console.log(user);
-    setIsLoggedIn(true)
+    localStorage.setItem("isLoggedIn", "true")
+    setIsLoggedIn("true")
+    navigate("/", { replace: true });
   }
 
   return (

@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./navbar.css"
 import { useUserContext } from '../../context/UserContext'
-import { alertify } from 'alertifyjs';
+import alertify from 'alertifyjs';
 
 const Navbar = () => {
-    const { isLoggedIn, signOut } = useUserContext()
+    const { logout, setIsLoggedIn, isLoggedIn } = useUserContext()
 
-    const currentUserLogOut = () => {
-        signOut()
-        localStorage.setItem("isLoggedIn", false)
+    const currentUserLogOut = async () => {
+        await logout()
+        localStorage.setItem("isLoggedIn", "false")
+        setIsLoggedIn("false")
         alertify.success("Logout Successful")
     }
+    useEffect(() => {
+        if (localStorage.getItem("isLoggedIn")) {
+            let currentValue = localStorage.getItem("isLoggedIn")
+            if (currentValue !== isLoggedIn) {
+                setIsLoggedIn(currentValue)
+            }
+        }
+        else {
+            localStorage.setItem("isLoggedIn", "false")
+            setIsLoggedIn("false")
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoggedIn])
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container ">
@@ -24,12 +38,12 @@ const Navbar = () => {
                         <input className='w-100' type="search" placeholder='Search' />
                     </div>
                     <div className="navbar-nav p-0 m-0 pe-0  justify-content-between ms-auto p-0">
-                        <NavLink className="navlink my-auto" to="register"><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
-                        <NavLink className="navlink my-auto" to="login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Login</NavLink>
+                        <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto"}`} to="register"><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
+                        <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto"}`} to="login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Login</NavLink>
                         <NavLink className="navlink my-auto" to="profile"><i className="me-2 fa-solid fa-user"></i>Profile</NavLink>
                         <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
                         <NavLink className="navlink my-auto" to="basket"><span id='basketCount' className="badge bg-white text-dark me-2">0</span>Basket</NavLink>
-                        <button onClick={currentUserLogOut} className="navlink my-auto">Log Out</button>
+                        <button onClick={currentUserLogOut} className={`${isLoggedIn === "false" ? "loggedin" : "navlink my-auto"}`}>Log Out</button>
                     </div>
                 </div>
             </div>

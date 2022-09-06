@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useUserContext } from '../../context/UserContext'
 import "./register.css"
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
     const { register } = useUserContext()
-
+    let navigate = useNavigate();
     const [userRegister, setUserRegister] = useState({
         email: "",
         password: "",
@@ -17,8 +18,8 @@ const Register = () => {
 
     const addUserToDb = async (e) => {
         e.preventDefault()
-
         const user = await register(userRegister.email, userRegister.password)
+        navigate("/login", { replace: true })
         console.log(user);
     }
 

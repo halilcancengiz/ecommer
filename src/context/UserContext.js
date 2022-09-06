@@ -9,10 +9,7 @@ export const UserProvider = ({ children }) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn"))
     console.log(isLoggedIn);
-    
-    useEffect(() => {
 
-    },[isLoggedIn])
 
     const register = async (email, password) => {
         try {
@@ -33,20 +30,21 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-    const signOut = () => {
+    const logout = async () => {
         try {
-            signOut(auth)
+            await signOut(auth)
+            return true;
         } catch (error) {
-            console.log(error);
+            alertify.error(error);
         }
     }
 
     const values = {
         register,
         login,
-        signOut,
+        logout,
         isLoggedIn,
-        setIsLoggedIn
+        setIsLoggedIn,
     }
 
     return (
