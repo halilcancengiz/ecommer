@@ -40,7 +40,7 @@ const Navbar = () => {
                     <div className="navbar-nav p-0 m-0 pe-0  justify-content-between ms-auto p-0">
                         <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto"}`} to="register"><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
                         <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto"}`} to="login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Login</NavLink>
-                        <NavLink className="navlink my-auto" to="profile"><i className="me-2 fa-solid fa-user"></i>Profile</NavLink>
+                        <NavLink className={`${isLoggedIn === "false" ? "loggedin" : "navlink my-auto"}`} to="profile"><i className="me-2 fa-solid fa-user"></i>Profile</NavLink>
                         <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
                         <NavLink className="navlink my-auto" to="basket"><span id='basketCount' className="badge bg-white text-dark me-2">0</span>Basket</NavLink>
                         <button onClick={currentUserLogOut} className={`${isLoggedIn === "false" ? "loggedin" : "navlink my-auto"}`}>Log Out</button>
