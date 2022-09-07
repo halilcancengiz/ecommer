@@ -4,9 +4,11 @@ import ProductList from '../productList/ProductList'
 
 const Home = () => {
   return (
-    <div>
-        <Navbar/>
-        <ProductList/>
+    <div className='homeContainer'>
+      <Navbar />
+      <div className='mx-auto w-75'>
+        <ProductList />
+      </div>
     </div>
   )
 }

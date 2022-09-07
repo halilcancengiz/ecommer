@@ -3,9 +3,8 @@ import "./productlist.css"
 
 const ProductList = () => {
     return (
-        <section>
+        <section className=''>
             <div className="row container mx-auto">
-
                 <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-center mt-4 justify-content-center">
                     <div className="cardContainer d-flex align-items-center justify-content-center flex-column">
                         <div className="cardImage">

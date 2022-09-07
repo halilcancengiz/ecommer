@@ -19,6 +19,7 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     const user = await login(userLogin.email, userLogin.password)
+    localStorage.setItem("currentUser", JSON.stringify(user))
     localStorage.setItem("isLoggedIn", "true")
     setIsLoggedIn("true")
     navigate("/", { replace: true });

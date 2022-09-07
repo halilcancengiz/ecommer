@@ -1,7 +1,22 @@
 #basketCount {
   background-color: #4079ff;
 }
-
+.active{
+  color: white!important;
+}
+.navbarContainer {
+  width: 75%!important;
+}
+.dropdown-item{
+  font-size: 12px!important;
+}
+.dropdown-item:hover{
+  background-color: #4079ff!important;
+}
+.dropdown-toggle{
+  border: none;
+  background-color: transparent;
+}
 .searchBar input {
   outline: none;
   border: none;
@@ -21,7 +36,6 @@
   color: #4079ff;
   font-size: 11px !important;
   margin-left: 15px;
-  margin-right: 5px;
 }
 
 .navlink:hover {
@@ -47,7 +61,7 @@
     background-color: transparent !important;
     border: none !important;
     color: #4079ff !important;
-    font-size: 17px !important;
+    font-size: 15px !important;
     margin-top: 10px;
     text-align: start;
     padding: 10px 0;
@@ -68,6 +82,9 @@
   }
   .searchBar input {
     margin: 0 !important;
+  }
+  .navbarContainer{
+    width: 100%!important;
   }
 }
 

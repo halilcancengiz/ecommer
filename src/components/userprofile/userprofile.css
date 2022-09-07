@@ -1,0 +1,15 @@
+.outletContainer {
+  width: 75% !important;
+}
+.accordion {
+  width: 180px;
+}
+.accordion-button {
+  height: 30px !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+}
+.accordion-button:active {
+  background-color: black;
+  color: white;
+}

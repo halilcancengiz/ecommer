@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import alertify from "alertifyjs";
 import { auth } from './../Firebase';
@@ -8,7 +8,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn"))
-    console.log(isLoggedIn);
+    const userInfo = JSON.parse(localStorage.getItem("currentUser"))
 
 
     const register = async (email, password) => {
@@ -45,6 +45,7 @@ export const UserProvider = ({ children }) => {
         logout,
         isLoggedIn,
         setIsLoggedIn,
+        userInfo
     }
 
     return (
