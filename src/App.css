@@ -1,20 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto Condensed", sans-serif;
 }
 
 .App {
   text-align: center;
-  
+  background: rgb(242, 242, 242);
 }
 
-
-.ajs-error,.ajs-success {
+.ajs-error,
+.ajs-success {
   color: white;
-  padding: 5px!important;
-  margin-bottom:20px!important;
-  font-size: 13px!important;
-  font-family: "Roboto Condensed", sans-serif!important;
+  padding: 5px !important;
+  margin-bottom: 20px !important;
+  font-size: 13px !important;
+  font-family: "Roboto Condensed", sans-serif !important;
+}
+.line-clamp4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
