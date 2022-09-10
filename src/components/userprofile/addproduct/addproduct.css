@@ -1,10 +1,9 @@
 #addproductForm input,select, #addProductSubmitButton{
-    height: 30px;
+    height: 40px;
     border: 1px solid gray;
     border-radius: 10px;
     outline: none;
 }
-
 #productImage{
     border: none!important;
     border-radius: 0!important;

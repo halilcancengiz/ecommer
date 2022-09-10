@@ -58,9 +58,9 @@ const Navbar = () => {
                         </div>
                         <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
                         <NavLink className="navlink my-auto" to="/basket"><span id='basketCount' className="badge bg-white text-dark me-2">0</span>Basket</NavLink>
+                    </div>
                 </div>
             </div>
-        </div>
         </nav >
     )
 }

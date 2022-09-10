@@ -1,19 +1,16 @@
 #basketCount {
   background-color: #4079ff;
 }
-.active{
-  color: white!important;
+.active {
+  color: white !important;
 }
 .navbarContainer {
-  width: 75%!important;
+  width: 75% !important;
 }
-.dropdown-item{
-  font-size: 12px!important;
+.dropdown-item:hover {
+  background-color: #4079ff !important;
 }
-.dropdown-item:hover{
-  background-color: #4079ff!important;
-}
-.dropdown-toggle{
+.dropdown-toggle {
   border: none;
   background-color: transparent;
 }
@@ -21,11 +18,12 @@
   outline: none;
   border: none;
   border-radius: 10px;
-  font-size: 13px;
   padding-left: 15px;
   margin-left: 40px;
 }
-
+.navbar-expand-lg {
+  min-height: 70px;
+}
 .navbar-brand {
   color: #4079ff !important;
 }
@@ -34,7 +32,6 @@
   background-color: transparent;
   border: none;
   color: #4079ff;
-  font-size: 11px !important;
   margin-left: 15px;
 }
 
@@ -61,7 +58,6 @@
     background-color: transparent !important;
     border: none !important;
     color: #4079ff !important;
-    font-size: 15px !important;
     margin-top: 10px;
     text-align: start;
     padding: 10px 0;
@@ -70,9 +66,7 @@
   .navlink:hover {
     color: white !important;
   }
-  .navlink i {
-    margin-left: 0;
-  }
+
   .navbar-nav button i {
     margin-left: 0;
   }
@@ -83,11 +77,11 @@
   .searchBar input {
     margin: 0 !important;
   }
-  .navbarContainer{
-    width: 100%!important;
+  .navbarContainer {
+    width: 100% !important;
   }
 }
 
 .loggedin {
-  display: none!important;
+  display: none !important;
 }
