@@ -11,6 +11,7 @@ import AddProduct from './components/userprofile/addproduct/AddProduct';
 import Orders from './components/userprofile/orders/Orders';
 import Settings from './components/userprofile/settings/Settings';
 import Profile from './components/userprofile/profile/Profile';
+import UserProducts from './pages/userProducts/UserProducts';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='addproduct' element={<AddProduct />} />
           <Route path='orders' element={<Orders />} />
           <Route path='settings' element={<Settings />} />
+          <Route path='myproducts' element={<UserProducts />} />
         </Route>
         <Route path="/basket" element={<Basket />} />
         <Route path="*" element={<NotFound />} />

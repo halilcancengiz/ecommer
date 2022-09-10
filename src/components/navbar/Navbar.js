@@ -50,6 +50,7 @@ const Navbar = () => {
                             </button>
                             <ul className="dropdown-menu bg-dark border-0">
                                 <li><NavLink className="dropdown-item text-white" to="/profile">Profile</NavLink></li>
+                                <li><NavLink className="dropdown-item text-white" to="/profile/myproducts">My Products</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/orders">Orders</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/addproduct">Add Product</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/settings">Settings</NavLink></li>
