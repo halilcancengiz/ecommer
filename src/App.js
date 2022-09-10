@@ -1,25 +1,28 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Register from './components/register/Register';
-import Login from './components/login/Login';
+import Register from './pages/register/Register';
+import Login from './pages/login/Login';
 import ProductList from './components/productList/ProductList';
-import Home from './components/home/Home';
-import UserProfile from './components/userprofile/UserProfile';
-import NotFound from './components/notfound/NotFound';
-import Basket from './components/basket/Basket';
+import Home from './pages/home/Home';
+import UserLayout from './components/userprofile';
+import NotFound from './pages/notfound/NotFound';
+import Basket from './pages/basket/Basket';
 import AddProduct from './components/userprofile/addproduct/AddProduct';
 import Orders from './components/userprofile/orders/Orders';
 import Settings from './components/userprofile/settings/Settings';
+import Profile from './components/userprofile/profile/Profile';
 
 function App() {
   return (
     <div className="App">
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/profile" element={<UserProfile />}>
+        <Route path="/profile" element={<UserLayout />}>
+          <Route index={true} element={<Profile />} />
           <Route path='addproduct' element={<AddProduct />} />
           <Route path='orders' element={<Orders />} />
           <Route path='settings' element={<Settings />} />

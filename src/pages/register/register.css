@@ -1,0 +1,145 @@
+.registerPageContainer {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    200deg,
+    rgba(33, 37, 41, 0.3),
+    rgba(96, 132, 168, 0.7)
+  );
+}
+.loginPageContainer {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    200deg,
+    rgba(33, 37, 41, 0.3),
+    rgba(96, 132, 168, 0.7)
+  );
+}
+#registerHeader {
+  text-shadow: 1px 1px 1px black;
+}
+.first {
+  height: 40px;
+  width: 260px;
+  position: relative;
+  box-shadow: 10px 10px 30px black;
+  transition: all 0.5s ease-in-out;
+}
+.first h3 {
+  background: linear-gradient(
+    to top,
+    rgba(33, 37, 41, 0.3),
+    rgba(33, 37, 41, 0.7)
+  );
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.first button {
+  outline: none;
+  border: none;
+}
+.first button:active{
+  transform: scale(1.009);
+}
+.first button:hover {
+  background: linear-gradient(
+    to top,
+    rgba(33, 37, 41, 0.3),
+    rgba(33, 37, 41, 0.7)
+  );
+  color: white;
+}
+.first input {
+  border: none;
+  outline: none;
+  padding-left: 15px;
+}
+.first:hover .second {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+.first:hover .third {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+.second {
+  position: absolute;
+  width: 274px;
+  height: 15px;
+  top: -15px;
+  transition: all 0.5s ease-in-out;
+  clip-path: polygon(0% 100%, 5% 0%, 100% 0%, 95% 100%);
+  background: linear-gradient(
+    to top,
+    rgba(33, 37, 41, 0.3),
+    rgba(33, 37, 41, 0.7)
+  );
+}
+.third {
+  position: absolute;
+  height: 55px;
+  width: 15px;
+  right: -15px;
+  bottom: 0;
+  clip-path: polygon(0% 27%, 100% 0%, 100% 73%, 0% 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  transition: all 0.5s linear;
+}
+.secondBtn {
+  position: absolute;
+  width: 274px;
+  height: 15px;
+  top: -15px;
+  transition: all 0.5s ease-in-out;
+  clip-path: polygon(0% 100%, 5% 0%, 100% 0%, 95% 100%);
+  background: linear-gradient(
+    to top,
+    rgba(33, 37, 41, 0.3),
+    rgba(33, 37, 41, 0.7)
+  );
+}
+.thirdBtn {
+  position: absolute;
+  height: 55px;
+  width: 15px;
+  right: -15px;
+  bottom: 0;
+  clip-path: polygon(0% 27%, 100% 0%, 100% 73%, 0% 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  transition: all 0.5s linear;
+}
+.secondHeader {
+  position: absolute;
+  width: 274px;
+  height: 15px;
+  top: -15px;
+  transition: all 0.5s ease-in-out;
+  clip-path: polygon(0% 100%, 5% 0%, 100% 0%, 95% 100%);
+  background: linear-gradient(
+    to top,
+    rgba(33, 37, 41, 0.3),
+    rgba(33, 37, 41, 0.7)
+  );
+}
+.thirdHeader {
+  position: absolute;
+  height: 55px;
+  width: 15px;
+  right: -15px;
+  bottom: 0;
+  clip-path: polygon(0% 27%, 100% 0%, 100% 73%, 0% 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  transition: all 0.5s linear;
+}
+
+.first:hover .secondBtn {
+  background: linear-gradient(
+    to top,
+    rgba(33, 37, 41, 0.7),
+    rgba(33, 37, 41, 0.7)
+  );
+}
+.first:hover .thirdBtn {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
