@@ -1,55 +1,61 @@
 .cardContainer {
-    width: 200px;
-    height: 280px;
-    overflow: hidden;
+  width: 280px;
+  overflow: hidden;
+  font-size: 1.1rem;
+  border: 1px solid #ccc !important;
+  font-family: "Roboto Condensed", sans-serif;
+  background: #fff;
+  cursor: pointer;
+}
+.cardContainer:hover {
+  box-shadow: 0 10px 15px #ccc;
+}
+.cardImage {
+  height: 175px;
+}
+.cardBody {
+  height: 155px;
+}
+.cardBody span {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.cardHeader {
+  height: 30px;
+  margin-top: 10px;
+  color: orange;
+}
+.cardHeader span {
+  border-bottom: 1px solid orange;
+}
+.cardDescription {
+  height: 100%;
+}
+.cardPrice {
+  height: 35px;
+  margin-top: 10px;
+}
+
+.cardPrice {
+  font-size: 1.2rem;
+  bottom: 0;
+  right: 0;
+  color: orange;
+}
+.cardFavorite {
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  right: 10px;
+  border-radius: 100%;
+  border: 1px solid orange;
+  color: rgba(255, 166, 0, 0.459);
+  background: transparent;
+}
+.cardFavorite .fa-heart{
     transition: all .5s ease-in-out;
-    border-radius: 20px;
-    position: relative;
 }
-.cardContainer:hover{
-    box-shadow: 0 3px 20px 5px black;
-}
-.cardImage{
-    height: 112px;
-}
-.cardBody{
-    height: 120px;
-}
-.cardDescription{
-    word-spacing: 3px;
-    font-size: 13px;
-}
-.cardFooter button{
-    outline: none;
-    border: none;
-    color: black;
-    width: 45%;
-    padding: 2px;
-    font-size: 13px;
-    border-radius: 20px;
-    background: linear-gradient(to right, rgb(3, 3, 3),rgba(11, 11, 11, 0.7));
-    color: white;
-    border: 1px solid transparent;
-    transition: all .5s ease-in-out;
-}
-.cardFooter button:hover{
-    border: 1px solid black;
-    background: transparent;
-    color: black;
-}
-.favorite {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    background-color: transparent;
-    border: none;
-    color: rgba(255, 0, 0, 0.425);
-    box-shadow: 2px 2px 10px black;
-    transition: all .5s ease-in-out;
-}
-.favorite:hover{
+.cardFavorite:hover .fa-heart{
     transform: scale(1.2);
-    color: rgb(255, 0, 0);
+    color: orange;
 }

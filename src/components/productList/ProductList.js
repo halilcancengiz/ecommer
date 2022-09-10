@@ -1,35 +1,44 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import "./productlist.css"
+import { useProductContext } from '../../context/ProductContext'
+import Loading from '../loading/Loading'
+
 
 const ProductList = () => {
-    return (
-        <section className=''>
-            <div className="row container mx-auto">
-                <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex align-items-center mt-4 justify-content-center">
-                    <div className="cardContainer d-flex align-items-center justify-content-center flex-column">
-                        <div className="cardImage">
-                            <img className='w-100 h-100' src="https://cdn.motor1.com/images/mgl/vEJmQ/s1/bmw-i8-m-rendering.jpg" alt="" />
-                        </div>
-                        <div className="cardBody d-flex align-items-center flex-column">
-                            <div className="cardTitle my-1">
-                                <h6 className='mb-0 fw-bold text-uppercase'>Product Title</h6>
-                            </div>
-                            <div className="cardDescription w-100 my-1">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim atque fuga dolore ullam iure praesentium.</p>
-                            </div>
-                        </div>
-                        <div className="cardFooter d-flex align-items-center justify-content-around flex-row text-center w-100 my-2 ">
-                            <button >İncele</button>
-                            <button >Sepete Ekle</button>
-                        </div>
-                        <button className="favorite rounded-circle d-flex align-items-center justify-content-center">
-                            <i className="fa-solid fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
+    const { allProducts, getProductsFromDatabase } = useProductContext()
 
-            </div>
-        </section>
+    useEffect(() => {
+        getProductsFromDatabase()
+    }, [])
+
+    return (
+        <main className='d-flex flex-row flex-wrap justify-content-center my-5'>
+            {
+                allProducts.length === 0 ? <Loading /> : allProducts.map((product, index) => (
+                    <div className="cardContainer mx-auto position-relative my-4">
+                        <div className="cardImage w-100 position-relative">
+                            <img className='w-100 h-100' src="https://www.incehesap.com/resim/urun/202203/62444be1298060.28822987_lmhkpfjgqneoi_500.jpg" alt="product" />
+                        </div>
+                        <div className="cardBody d-flex align-items-center flex-column w-100">
+                            <div className="cardHeader">
+                                <span>{product.title}</span>
+                            </div>
+                            <div className='cardDescription'>
+                                <p className='line-clamp4 px-2'>{product.description}</p>
+                            </div>
+                        </div>
+                        <button className='cardFavorite position-absolute'>
+                            <i className="fa-solid fa-heart d-flex align-items-center justify-content-center"></i>
+                        </button>
+                        <div className='cardPrice w-100'>
+                            <div className='h-100 d-flex align-items-center px-3 fw-bold'>{product.price} <span className='ms-1'>TL</span></div>
+                        </div>
+                    </div>
+                ))
+            }
+
+        </main>
     )
 }
 
