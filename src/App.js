@@ -11,12 +11,12 @@ import AddProduct from './components/userprofile/addproduct/AddProduct';
 import Orders from './components/userprofile/orders/Orders';
 import Settings from './components/userprofile/settings/Settings';
 import Profile from './components/userprofile/profile/Profile';
-import UserProducts from './pages/userProducts/UserProducts';
+import MyProducts from './pages/myproducts/MyProducts';
+
 
 function App() {
   return (
     <div className="App">
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -27,12 +27,11 @@ function App() {
           <Route path='addproduct' element={<AddProduct />} />
           <Route path='orders' element={<Orders />} />
           <Route path='settings' element={<Settings />} />
-          <Route path='myproducts' element={<UserProducts />} />
+          <Route path='myproducts' element={<MyProducts />} />
         </Route>
         <Route path="/basket" element={<Basket />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-
     </div>
   );
 }

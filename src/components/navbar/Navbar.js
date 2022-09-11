@@ -6,17 +6,10 @@ import alertify from 'alertifyjs';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-    const { logout, setIsLoggedIn, isLoggedIn } = useUserContext()
+    const { logout, setIsLoggedIn, isLoggedIn, visitor } = useUserContext()
 
     const navigate = useNavigate();
-    const currentUserLogOut = async () => {
-        await logout()
-        localStorage.setItem("isLoggedIn", "false")
-        localStorage.removeItem("currentUser")
-        setIsLoggedIn("false")
-        alertify.success("Logout Successful")
-        navigate("/", { replace: true });
-    }
+
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn")) {
             let currentValue = localStorage.getItem("isLoggedIn")
@@ -24,12 +17,25 @@ const Navbar = () => {
                 setIsLoggedIn(currentValue)
             }
         }
+        else if (localStorage.getItem("currentUser")){
+            
+        }
         else {
             localStorage.setItem("isLoggedIn", "false")
             setIsLoggedIn("false")
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn])
+
+    const handleCurrentUserLogout = async () => {
+        await logout()
+        await localStorage.setItem("isLoggedIn", "false")
+        await localStorage.setItem("currentUser", JSON.stringify(visitor))
+        setIsLoggedIn("false")
+        alertify.success("Logout Successful")
+        navigate("/", { replace: true });
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container navbarContainer">
@@ -54,7 +60,7 @@ const Navbar = () => {
                                 <li><NavLink className="dropdown-item text-white" to="/profile/orders">Orders</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/addproduct">Add Product</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/settings">Settings</NavLink></li>
-                                <li><button onClick={currentUserLogOut} className={`${isLoggedIn === "false" ? "loggedin" : "dropdown-item text-white"}`} href="#">Log Out</button></li>
+                                <li><button onClick={handleCurrentUserLogout} className={`${isLoggedIn === "false" ? "loggedin" : "dropdown-item text-white"}`} href="#">Log Out</button></li>
                             </ul>
                         </div>
                         <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>

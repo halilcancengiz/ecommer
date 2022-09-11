@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div style={{ minHeight: "100vh" }} className='homeContainer'>
       <Navbar />
-      <div className='mx-auto w-75 my-auto h-100'>
+      <div className='mx-auto h-100'>
         <ProductList />
       </div>
     </div>

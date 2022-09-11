@@ -8,9 +8,13 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn"))
-    
+    const visitor = [{
+        uid: 0,
+        providerData: [{
+            email: "visitor.profile@gmail.com"
+        }]
+    }]
     const userInfo = JSON.parse(localStorage.getItem("currentUser"))
-    console.log(JSON.parse(localStorage.getItem("currentUser")));
 
 
     const register = async (email, password) => {
@@ -47,7 +51,8 @@ export const UserProvider = ({ children }) => {
         logout,
         isLoggedIn,
         setIsLoggedIn,
-        userInfo
+        userInfo,
+        visitor
     }
 
     return (

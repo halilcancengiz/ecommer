@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from 'react';
 import { onValue, ref, set } from 'firebase/database';
 import { db } from '../Firebase';
 import { useUserContext } from '../context/UserContext';
-import { v4 as uuidv4 } from 'uuid';
 
 const ProductContext = createContext()
 
@@ -13,7 +12,6 @@ export const ProductContextProvider = ({ children }) => {
     const date = `${new Date()}`;
 
     const [allProducts, setAllProducts] = useState([])
-
     const productID = allProducts.length
 
 
@@ -38,7 +36,6 @@ export const ProductContextProvider = ({ children }) => {
             }
             setAllProducts(dataList)
         })
-        console.log(allProducts);
     }
 
     const values = {

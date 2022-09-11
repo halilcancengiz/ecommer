@@ -5,20 +5,16 @@ import { useUserContext } from "../../../context/UserContext"
 const Profile = () => {
     // const { eleman } = useProductContext()
     const { userInfo } = useUserContext()
-    const { uid } = userInfo
     console.log(userInfo);
-    console.log(uid);
+
     return (
         <div>
             {
-                userInfo.providerData.map(user => (
-                    <p key={user.uid}>{user.email}</p>
+                userInfo && userInfo.providerData.map((user,index) => (
+                    <p key={index}>{user.email}</p>
 
                 ))
             }
-            <div>
-                
-            </div>
         </div>
     )
 }

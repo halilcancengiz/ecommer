@@ -49,9 +49,9 @@ const AddProduct = () => {
 
                 <label className='d-flex p-0 mb-1' htmlFor="productCategory">Product Category :</label>
                 <select onChange={handleChangeProductForm} value={newProduct.category} name="category" className='mb-3' id="productCategory">
-                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="" hidden>Choose here</option>
                     <option value="Elektronik">Elektronik</option>
-                    <option selected value="Giyim">Giyim</option>
+                    <option value="Giyim">Giyim</option>
                     <option value="Otomobil">Otomobil</option>
                     <option value="Aksesuar">Aksesuar</option>
                     <option value="Ev Eşyaları">Ev Eşyaları</option>

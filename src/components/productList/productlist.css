@@ -6,6 +6,7 @@
   font-family: "Roboto Condensed", sans-serif;
   background: #fff;
   cursor: pointer;
+  border-radius: 10px;
 }
 .cardContainer:hover {
   box-shadow: 0 10px 15px #ccc;

@@ -13,30 +13,33 @@ const ProductList = () => {
     }, [])
 
     return (
-        <main className='d-flex flex-row flex-wrap justify-content-center my-5'>
-            {
-                allProducts.length === 0 ? <Loading /> : allProducts.map((product, index) => (
-                    <div className="cardContainer mx-auto position-relative my-4">
-                        <div className="cardImage w-100 position-relative">
-                            <img className='w-100 h-100' src="https://www.incehesap.com/resim/urun/202203/62444be1298060.28822987_lmhkpfjgqneoi_500.jpg" alt="product" />
-                        </div>
-                        <div className="cardBody d-flex align-items-center flex-column w-100">
-                            <div className="cardHeader">
-                                <span>{product.title}</span>
+        <main>
+            <div className="container d-flex align-items-center flex-wrap justify-content-center my-5">
+                {
+                    allProducts.length === 0 ? <Loading /> : allProducts.map((product, index) => (
+                        <div key={product.id} className="cardContainer mx-2 position-relative my-4">
+                            <div className="cardImage w-100">
+                                <img className='w-100 h-100' src="https://www.incehesap.com/resim/urun/202203/62444be1298060.28822987_lmhkpfjgqneoi_500.jpg" alt="product" />
                             </div>
-                            <div className='cardDescription'>
-                                <p className='line-clamp4 px-2'>{product.description}</p>
+                            <div className="cardBody d-flex align-items-center flex-column w-100">
+                                <div className="cardHeader">
+                                    <span>{product.title}</span>
+                                </div>
+                                <div className='cardDescription'>
+                                    <p className='line-clamp4 px-2'>{product.description}</p>
+                                </div>
+                            </div>
+                            <button className='cardFavorite position-absolute'>
+                                <i className="fa-solid fa-heart d-flex align-items-center justify-content-center"></i>
+                            </button>
+                            <div className='cardPrice w-100'>
+                                <div className='h-100 d-flex align-items-center px-3 fw-bold'>{product.price} <span className='ms-1'>TL</span></div>
                             </div>
                         </div>
-                        <button className='cardFavorite position-absolute'>
-                            <i className="fa-solid fa-heart d-flex align-items-center justify-content-center"></i>
-                        </button>
-                        <div className='cardPrice w-100'>
-                            <div className='h-100 d-flex align-items-center px-3 fw-bold'>{product.price} <span className='ms-1'>TL</span></div>
-                        </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
+
 
         </main>
     )
