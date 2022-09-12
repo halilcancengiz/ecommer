@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { onValue, ref, set } from 'firebase/database';
+import { onValue, ref, remove, set } from 'firebase/database';
 import { db } from '../Firebase';
 import { useUserContext } from '../context/UserContext';
 
@@ -37,11 +37,15 @@ export const ProductContextProvider = ({ children }) => {
             setAllProducts(dataList)
         })
     }
+    const deleteProduct = async (product) => {
+        await remove(ref(db,`/products/${product}`))
+    }
 
     const values = {
         allProducts,
         getProductsFromDatabase,
-        addProductToDb
+        addProductToDb,
+        deleteProduct
     }
     return (
         <ProductContext.Provider value={values}>
