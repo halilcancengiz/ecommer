@@ -1,0 +1,42 @@
+.tableContainer {
+  max-width: 1100px;
+  background-color: #efefef33;
+  overflow: auto;
+  margin: auto;
+}
+.tableContainer::-webkit-scrollbar{
+  height: 10px;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 10px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+  background: rgb(33, 37, 41);
+  border-radius: 20px;
+}
+table {
+  width: 100%;
+  font-size: 15px;
+  color: black;
+  white-space: nowrap;
+  border-collapse: collapse;
+}
+table thead th {
+  padding: 15px;
+}
+table tr {
+  transition: all 0.2s ease-in-out;
+}
+table tr:hover {
+  box-shadow: 0.5px 0.5px 5px rgb(2, 2, 2);
+  background-color: rgb(33, 37, 41);
+  color: white;
+}
+table th,
+table td {
+  border-bottom: 0.1px solid rgb(204, 204, 204);
+}
+tbody td i {
+  cursor: pointer;
+  font-size: 17px;
+}
