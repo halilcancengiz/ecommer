@@ -1,11 +1,11 @@
-#addproductForm input,select, #addProductSubmitButton{
-    height: 40px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    outline: none;
+#addproductForm #productCategory, input, #addProductSubmitButton {
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  outline: none;
 }
-#productImage{
-    border: none!important;
-    border-radius: 0!important;
-    padding: 0!important;
+#productImage {
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 }
