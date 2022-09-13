@@ -1,5 +1,5 @@
 .tableContainer {
-  max-width: 1100px;
+  max-width: 1200px;
   background-color: #efefef33;
   overflow: auto;
   margin: auto;
@@ -36,7 +36,22 @@ table th,
 table td {
   border-bottom: 0.1px solid rgb(204, 204, 204);
 }
+tbody td button {
+  cursor: pointer;
+  font-size: 17px;
+  border: none;
+  background-color: transparent;
+}
 tbody td i {
   cursor: pointer;
   font-size: 17px;
+}
+
+#UpdateModal{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.356);
+  top: 15%;
+  left: 35%;
 }
