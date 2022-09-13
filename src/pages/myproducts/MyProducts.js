@@ -1,10 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react'
+import React, { useState } from 'react'
 import { useProductContext } from '../../context/ProductContext'
 import { useUserContext } from '../../context/UserContext'
+import UpdateModal from '../../components/updatemodal/UpdateModal'
 import { useEffect } from 'react'
 import "./myproducts.css"
 import alertify from 'alertifyjs';
+
+
+
 
 const MyProducts = () => {
 
@@ -40,7 +44,7 @@ const MyProducts = () => {
     return (
         <div>
             <div className="tableContainer mt-5">
-                <table >
+                <table>
                     <thead className='bg-dark text-white'>
                         <tr>
                             {
@@ -52,21 +56,49 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            filteredProduct.length === 0 ? <div className='text-danger'>Hiç Ürününüz Bulunmamaktadır</div> : filteredProduct.map((myproduct, index) => (
-                                <tr key={myproduct.id}>
-                                    <td> <img width={80} height={80}
-                                        className="p-2"
-                                        src="https://teknotower.com/wp-content/uploads/2019/10/best-gaming-pc-2020.jpg"
-                                        alt={myproduct.title} />
-                                    </td>
-                                    <td><span className='d-flex align-items-center justify-content-center h-100'>{myproduct.title}</span></td>
-                                    <td><span className='d-flex align-items-center justify-content-center h-100'>{`${myproduct.description.slice(0, 10)} ...`}</span></td>
-                                    <td><span className='d-flex align-items-center justify-content-center h-100'>{myproduct.category}</span></td>
-                                    <td><span className='d-flex align-items-center justify-content-center h-100'>{`${myproduct.price} TL`}</span></td>
-                                    <td><span className='d-flex align-items-center justify-content-center h-100'><i className="fa-solid fa-file-pen "></i></span></td>
-                                    <td><span className='d-flex align-items-center justify-content-center h-100'><i onClick={() => handleDelete(myproduct)} className="fa-solid fa-trash-can "></i></span></td>
-                                </tr>
-                            ))
+                            filteredProduct.length === 0 ?
+                                null :
+                                filteredProduct.map((myproduct, index) => (
+                                    <tr key={myproduct.id}>
+                                        <td> <img width={80} height={80}
+                                            className="p-2"
+                                            src="https://teknotower.com/wp-content/uploads/2019/10/best-gaming-pc-2020.jpg"
+                                            alt={myproduct.title} />
+                                        </td>
+                                        <td>
+                                            <span className='d-flex align-items-center justify-content-center'>
+                                                {myproduct.title}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span className='d-flex align-items-center justify-content-center'>
+                                                {`${myproduct.description.slice(0, 15)} ...`}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span className='d-flex align-items-center justify-content-center'>
+                                                {myproduct.category}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span className='d-flex align-items-center justify-content-center'>
+                                                {`${myproduct.price} TL`}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span className='d-flex align-items-center justify-content-center'>
+                                                <UpdateModal myproduct={myproduct} />
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span className='d-flex align-items-center justify-content-center'>
+                                                <button className='bg-danger px-3 py-1 text-white rounded-pill' onClick={() => handleDelete(myproduct)}>
+                                                    <i className="fa-solid fa-trash-can "></i>
+                                                </button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))
                         }
                     </tbody>
                 </table>
