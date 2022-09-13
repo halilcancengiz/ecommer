@@ -1,0 +1,57 @@
+.updateModal {
+  position: absolute;
+  background-color: rgba(1, 1, 2, 0.418);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.updateModalForm {
+  height: 350px;
+  position: absolute;
+  box-shadow: 0 0 10px rgb(58, 58, 58);
+}
+.updateModalForm input {
+  height: 35px;
+  border-radius: 0;
+  width: 75%;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.updateModalForm select {
+  height: 35px;
+  border-radius: none !important;
+  width: 75%;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+#closeUpdateModalButton {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background: white;
+  font-size: 1.2rem;
+}
+#closeUpdateModalButton i {
+  background: transparent;
+  padding: 5px;
+  color: black;
+}
+#updateFormButtonGroup button {
+  border: 1px solid rgb(87, 86, 86);
+  color: black;
+}
+#updateFormButtonGroup :first-child:hover {
+  background: #0dcaf0 !important;
+  color: white;
+  border: 1px solid white;
+}
+#updateFormButtonGroup :last-child:hover {
+  background: rgb(206, 17, 17) !important;
+  color: white;
+  border: 1px solid white;
+}
