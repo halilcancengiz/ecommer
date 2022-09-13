@@ -1,7 +1,8 @@
 import { createContext, useContext, useState } from 'react';
-import { onValue, ref, remove, set } from 'firebase/database';
+import { onValue, ref, remove, set, update } from 'firebase/database';
 import { db } from '../Firebase';
 import { useUserContext } from '../context/UserContext';
+import alertify from 'alertifyjs';
 
 const ProductContext = createContext()
 
@@ -15,12 +16,12 @@ export const ProductContextProvider = ({ children }) => {
     const productID = allProducts.length
 
 
-    const addProductToDb = async (name, description, category, price) => {
+    const addProductToDb = async (title, description, category, price) => {
         await set(ref(db, "/products/" + productID), {
             id: productID,
             createdAt: date,
             createdWho: currentUid,
-            title: name,
+            title: title,
             description: description,
             category: category,
             price: price
@@ -38,14 +39,32 @@ export const ProductContextProvider = ({ children }) => {
         })
     }
     const deleteProduct = async (product) => {
-        await remove(ref(db,`/products/${product}`))
+        await remove(ref(db, `/products/${product}`))
     }
+
+    const updateProduct = async (product, title, description, category, price) => {
+        try {
+            await update(ref(db, `/products/${product}`), {
+                title: title,
+                description: description,
+                category: category,
+                price: price,
+                updatedAt: date
+            })
+            alertify.success("Ürün Başarıyla Güncellendi.")
+        } catch (error) {
+            console.log(error)
+            alertify.error("Ürün Güncelleme İşlemi Başarısız")
+        }
+    }
+
 
     const values = {
         allProducts,
         getProductsFromDatabase,
         addProductToDb,
-        deleteProduct
+        deleteProduct,
+        updateProduct
     }
     return (
         <ProductContext.Provider value={values}>
