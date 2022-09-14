@@ -11,12 +11,25 @@ export const ProductContextProvider = ({ children }) => {
 
     const currentUid = userInfo.uid;
     const date = `${new Date()}`;
-
+    const [base64Image, setBase64Image] = useState()
     const [allProducts, setAllProducts] = useState([])
     const productID = allProducts.length
 
 
-    const addProductToDb = async (title, description, category, price) => {
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                resolve(fileReader.result)
+            }
+            fileReader.onerror = (error) => {
+                reject(error)
+            }
+        })
+    }
+
+    const addProductToDb = async (title, description, category, price, url) => {
         await set(ref(db, "/products/" + productID), {
             id: productID,
             createdAt: date,
@@ -24,7 +37,8 @@ export const ProductContextProvider = ({ children }) => {
             title: title,
             description: description,
             category: category,
-            price: price
+            price: price,
+            url: url
         });
     }
 
@@ -42,14 +56,15 @@ export const ProductContextProvider = ({ children }) => {
         await remove(ref(db, `/products/${product}`))
     }
 
-    const updateProduct = async (product, title, description, category, price) => {
+    const updateProduct = async (product, title, description, category, price, url) => {
         try {
             await update(ref(db, `/products/${product}`), {
                 title: title,
                 description: description,
                 category: category,
                 price: price,
-                updatedAt: date
+                updatedAt: date,
+                url: url
             })
             alertify.success("Ürün Başarıyla Güncellendi.")
         } catch (error) {
@@ -64,7 +79,10 @@ export const ProductContextProvider = ({ children }) => {
         getProductsFromDatabase,
         addProductToDb,
         deleteProduct,
-        updateProduct
+        updateProduct,
+        convertBase64,
+        setBase64Image,
+        base64Image
     }
     return (
         <ProductContext.Provider value={values}>

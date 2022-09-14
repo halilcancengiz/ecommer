@@ -2,17 +2,27 @@ import React, { useState } from 'react'
 import { useProductContext } from '../../context/ProductContext'
 import "./updatemodal.css"
 import MyProducts from './../../pages/myproducts/MyProducts';
-import  alertify  from 'alertifyjs';
+import alertify from 'alertifyjs';
+
 
 const UpdateModal = ({ myproduct }) => {
-    const { updateProduct } = useProductContext()
+    const { updateProduct, convertBase64, setBase64Image, base64Image } = useProductContext()
     const [isEdit, setIsEdit] = useState(false)
+
     const [updateProductInputValue, setUpdateProductInputValue] = useState({
         title: myproduct.title,
         description: myproduct.description,
         category: myproduct.category,
         price: myproduct.price,
+        url: base64Image
     })
+
+    const uploadNewImage = async (e) => {
+        console.log(e.target.files);
+        const file = e.target.files[0]
+        const base64 = await convertBase64(file)
+        setBase64Image(base64)
+    }
 
     const openUpdateModal = (e) => {
         setIsEdit(true)
@@ -27,7 +37,7 @@ const UpdateModal = ({ myproduct }) => {
         setUpdateProductInputValue({ ...updateProductInputValue, [e.target.name]: e.target.value })
     }
     const handleUpdateSubmit = async (e, myproduct) => {
-        updateProduct(myproduct, updateProductInputValue.title, updateProductInputValue.description, updateProductInputValue.category, updateProductInputValue.price)
+        updateProduct(myproduct, updateProductInputValue.title, updateProductInputValue.description, updateProductInputValue.category, updateProductInputValue.price, base64Image)
         setIsEdit(false)
         e.preventDefault()
     }
@@ -52,6 +62,7 @@ const UpdateModal = ({ myproduct }) => {
                             <option value="Diğer">Diğer</option>
                         </select>
                         <input onChange={handleChangeUpdatedProduct} value={updateProductInputValue.price} className='mt-3' type="text" name='price' placeholder={myproduct.price} />
+                        <input onChange={(e) => uploadNewImage(e)} type="file" name='image' className='mt-3 border-0 p-0' />
                         <button onClick={closeUpdateModal} id='closeUpdateModalButton'>
                             <i className="fa-solid fa-xmark"></i>
                         </button>
