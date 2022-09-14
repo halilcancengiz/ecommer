@@ -62,7 +62,7 @@ const MyProducts = () => {
                                     <tr key={myproduct.id}>
                                         <td> <img width={80} height={80}
                                             className="p-2"
-                                            src="https://teknotower.com/wp-content/uploads/2019/10/best-gaming-pc-2020.jpg"
+                                            src={myproduct.url}
                                             alt={myproduct.title} />
                                         </td>
                                         <td>
