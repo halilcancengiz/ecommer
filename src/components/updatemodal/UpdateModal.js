@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { useProductContext } from '../../context/ProductContext'
 import "./updatemodal.css"
-import MyProducts from './../../pages/myproducts/MyProducts';
 import alertify from 'alertifyjs';
 
 
@@ -82,4 +81,4 @@ const UpdateModal = ({ myproduct }) => {
     )
 }
 
-export default UpdateModal
+export default memo(UpdateModal)

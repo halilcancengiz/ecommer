@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react'
 import { useUserContext } from "../../../context/UserContext"
 // import { useProductContext } from '../../../context/ProductContext'
 
@@ -19,6 +19,6 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default memo(Profile)
 
 // eyJhbGciOiJSUzI1NiIsImtpZCI6ImVkNmJjOWRhMWFmMjM2Zj…Zn6c8QuiaKSutdGh2JSOAnJr2lmqoTHVQWXKiGBO3CqTyHxMA

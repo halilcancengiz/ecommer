@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,memo } from 'react'
 import "./addproduct.css"
 import { useProductContext } from '../../../context/ProductContext';
 import alertify from 'alertifyjs';
@@ -79,4 +79,4 @@ const AddProduct = () => {
     )
 }
 
-export default AddProduct
+export default memo(AddProduct)

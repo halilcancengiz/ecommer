@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import ProductList from '../../components/productList/ProductList'
 
@@ -14,4 +14,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default memo(Home)

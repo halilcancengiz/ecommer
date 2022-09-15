@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { NavLink } from 'react-router-dom'
 import Home from '../../pages/home/Home'
 
@@ -12,4 +12,4 @@ const NotFound = () => {
     )
 }
 
-export default NotFound
+export default memo(NotFound)

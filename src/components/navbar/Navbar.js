@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, memo } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import "./navbar.css"
 import { useUserContext } from '../../context/UserContext'
@@ -17,8 +17,8 @@ const Navbar = () => {
                 setIsLoggedIn(currentValue)
             }
         }
-        else if (localStorage.getItem("currentUser")){
-            
+        else if (localStorage.getItem("currentUser")) {
+
         }
         else {
             localStorage.setItem("isLoggedIn", "false")
@@ -72,7 +72,7 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default memo(Navbar)
 
 
 // className={`${isLoggedIn === false ? "navlink my-auto" : "d-none"}`}

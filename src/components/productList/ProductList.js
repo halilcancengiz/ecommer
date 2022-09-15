@@ -1,12 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
+import React, { useEffect,memo } from 'react'
 import "./productlist.css"
 import { useProductContext } from '../../context/ProductContext'
+import { useBasketContext } from '../../context/BasketContext'
 import Loading from '../loading/Loading'
+import alertify from 'alertifyjs'
 
 
 const ProductList = () => {
     const { allProducts, getProductsFromDatabase } = useProductContext()
+    const { addProductToBasket, currentBasket } = useBasketContext()
+
+    const handleAddProductToBasket = async (product) => {
+        if (currentBasket.some(basket => basket.id === product.id)) {
+            alertify.error("Ürün Sepette Mevcut")
+        }
+        else {
+            await addProductToBasket(product)
+            alertify.success("Ürün Sepete Eklendi")
+        }
+    }
 
     useEffect(() => {
         getProductsFromDatabase()
@@ -35,6 +48,7 @@ const ProductList = () => {
                             <div className='cardPrice w-100'>
                                 <div className='h-100 d-flex align-items-center px-3 fw-bold'>{product.price} <span className='ms-1'>TL</span></div>
                             </div>
+                            <button onClick={() => handleAddProductToBasket(product)} className='w-100 addToBasket'>Sepete Ekle</button>
                         </div>
                     ))
                 }
@@ -45,4 +59,4 @@ const ProductList = () => {
     )
 }
 
-export default ProductList
+export default memo(ProductList)

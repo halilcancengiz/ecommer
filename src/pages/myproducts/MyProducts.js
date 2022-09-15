@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react'
+import React, { useState,memo } from 'react'
 import { useProductContext } from '../../context/ProductContext'
 import { useUserContext } from '../../context/UserContext'
 import UpdateModal from '../../components/updatemodal/UpdateModal'
@@ -107,6 +107,6 @@ const MyProducts = () => {
     )
 }
 
-export default MyProducts
+export default memo(MyProducts)
 
 

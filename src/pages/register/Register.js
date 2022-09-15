@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { useUserContext } from '../../context/UserContext'
 import "./register.css"
 import { useNavigate } from "react-router-dom";
@@ -53,4 +53,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default memo(Register)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react'
 
 const Orders = () => {
   return (
@@ -8,4 +8,4 @@ const Orders = () => {
   )
 }
 
-export default Orders
+export default memo(Orders)
