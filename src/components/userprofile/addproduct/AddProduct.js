@@ -5,20 +5,20 @@ import alertify from 'alertifyjs';
 
 
 const AddProduct = () => {
-    const { addProductToDb,base64Image,setBase64Image,convertBase64 } = useProductContext();
+    const { addProductToDb } = useProductContext();
 
     const [newProduct, setNewProduct] = useState({
         name: "",
         description: "",
         category: "",
         price: "",
-        image: base64Image
+        image: ""
     })
 
     const handleSubmitProductForm = (e) => {
         e.preventDefault()
         if (newProduct.name !== "" && newProduct.description !== "" && newProduct.category !== "" && newProduct.price !== "") {
-            addProductToDb(newProduct.name, newProduct.description, newProduct.category, newProduct.price, base64Image)
+            addProductToDb(newProduct.name, newProduct.description, newProduct.category, newProduct.price)
             setNewProduct({
                 name: "",
                 description: "",
@@ -33,15 +33,6 @@ const AddProduct = () => {
         }
 
     }
-
-    const uploadImage = async (e) => {
-        // console.log(e.target.files);
-        const file = e.target.files[0]
-        const base64 = await convertBase64(file)
-        setBase64Image(base64)
-    }
-
-    
 
     const handleChangeProductForm = (e) => {
         setNewProduct({ ...newProduct, [e.target.name]: e.target.value })
@@ -71,7 +62,7 @@ const AddProduct = () => {
                 <input onChange={handleChangeProductForm} value={newProduct.price} name="price" className='mb-3' id='productPrice' type="number" placeholder='Product Price' />
 
                 <label className='d-flex p-0 mb-1' htmlFor="productImage">Product Image :</label>
-                <input onChange={(e) => uploadImage(e)} name="image" className='mb-3' id='productImage' type="file" />
+                <input onChange={handleChangeProductForm} value={newProduct.image} name="image" className='mb-3' id='productImage' type="file" />
 
                 <button className='mb-3' id='addProductSubmitButton' type='submit'>Add Product</button>
             </form>
