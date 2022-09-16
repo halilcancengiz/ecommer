@@ -24,6 +24,7 @@ export const BasketContextProvider = ({ children }) => {
             description: product.description,
             category: product.category,
             price: product.price,
+            moneytype: product.moneytype,
             url: product.url,
             addingToCardBy: userInfo.uid
         });
@@ -41,7 +42,7 @@ export const BasketContextProvider = ({ children }) => {
         })
     }
 
-    
+
     const values = {
         addProductToBasket,
         getBasketFromDatabase,
