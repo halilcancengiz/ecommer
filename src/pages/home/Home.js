@@ -5,7 +5,7 @@ import ProductList from '../../components/productList/ProductList'
 
 const Home = () => {
   return (
-    <div style={{ minHeight: "100vh" }} className='homeContainer'>
+    <div style={{ minHeight: "100vh" }}>
       <Navbar />
       <div className='mx-auto h-100'>
         <ProductList />
