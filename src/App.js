@@ -1,4 +1,3 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
@@ -31,8 +30,8 @@ function App() {
           <Route path='settings' element={<Settings />} />
           <Route path='myproducts' element={<MyProducts />} />
           <Route path='favorites' element={<Favorites />} />
+          <Route path="basket" element={<Basket />} />
         </Route>
-        <Route path="/basket" element={<Basket />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
