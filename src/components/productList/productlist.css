@@ -11,6 +11,9 @@
 .cardContainer:hover {
   box-shadow: 0 10px 15px #ccc;
 }
+.cardContainer:hover .addToBasket {
+  height: 35px;
+}
 .cardImage {
   height: 164px;
 }
@@ -59,4 +62,14 @@
 .cardFavorite:hover .fa-heart{
     transform: scale(1.2);
     color: orange;
+}
+.addToBasket {
+  color: white;
+  background: orange;
+  border: none;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all .2s ease-in-out;
 }
