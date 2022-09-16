@@ -14,18 +14,22 @@ const AddProduct = () => {
         category: "",
         price: "",
         moneytype: "",
+        quantity: "",
+        shippingtype: ""
     })
 
     const handleSubmitProductForm = (e) => {
         e.preventDefault()
-        if (newProduct.title !== "" && newProduct.description !== "" && newProduct.category !== "" && newProduct.price !== "" && newProduct.moneytype !== "" && newProduct.url !== "") {
-            addProductToDb(newProduct.title, newProduct.description, newProduct.category, newProduct.price, newProduct.moneytype, base64Image)
+        if (newProduct.title !== "" && newProduct.description !== "" && newProduct.category !== "" && newProduct.price !== "" && newProduct.moneytype !== "" && newProduct.url !== "" && newProduct.quantity !== "" && newProduct.shippingtype !== "") {
+            addProductToDb(newProduct, base64Image)
             setNewProduct({
                 title: "",
                 description: "",
                 category: "",
                 price: "",
                 moneytype: "",
+                quantity: "",
+                shippingtype: "",
                 url: ""
             })
             setBase64Image("")
@@ -49,7 +53,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div style={{ marginTop: "30px" }} className='w-100 h-100'>
+        <div style={{ marginTop: "30px" }}>
             <h5 className='border-bottom d-inline-block border-dark'>New Product</h5>
             <form onSubmit={handleSubmitProductForm} id='addproductForm' className='row container mx-auto'>
                 <label className='d-flex p-0 mb-1' htmlFor="productTitle">Product Name :</label>
@@ -60,7 +64,7 @@ const AddProduct = () => {
 
                 <label className='d-flex p-0 mb-1' htmlFor="productCategory">Product Category :</label>
                 <select onChange={handleChangeProductForm} value={newProduct.category} name="category" className='mb-3' id="productCategory">
-                    <option value="" hidden>Choose here</option>
+                    <option value="" hidden>Select Category</option>
                     <option value="Elektronik">Elektronik</option>
                     <option value="Giyim">Giyim</option>
                     <option value="Otomobil">Otomobil</option>
@@ -74,10 +78,21 @@ const AddProduct = () => {
 
                 <label className='d-flex p-0 mb-1' htmlFor="moneytype">Money Type :</label>
                 <select onChange={handleChangeProductForm} value={newProduct.moneytype} name="moneytype" className='mb-3' id="moneytype">
-                    <option value="" hidden>Choose here</option>
+                    <option value="" hidden>Select Money Type</option>
                     <option value="₺">Türk Lirası</option>
                     <option value="€">Euro</option>
                     <option value="$">Dolar</option>
+                </select>
+
+                <label className='d-flex p-0 mb-1' htmlFor="quantity">Quantity :</label>
+                <input onChange={handleChangeProductForm} value={newProduct.quantity} name="quantity" className='mb-3' id='quantity' type="number" placeholder='Product Quantity' />
+
+                <label className='d-flex p-0 mb-1' htmlFor="shippingtype">Shipping Type :</label>
+                <select onChange={handleChangeProductForm} value={newProduct.shippingtype} name="shippingtype" className='mb-3' id="shippingtype">
+                    <option value="" hidden>Select Shipping Type</option>
+                    <option value="fast">Fast</option>
+                    <option value="free">Free</option>
+                    <option value="notfree">Not Free</option>
                 </select>
 
                 <label className='d-flex p-0 mb-1' htmlFor="productUrl">Product URL :</label>

@@ -17,16 +17,18 @@ export const ProductContextProvider = ({ children }) => {
     const productID = uuidv4()
 
     //* Ürün Ekleme
-    const addProductToDb = async (title, description, category, price, moneytype, url) => {
+    const addProductToDb = async (newproduct, url) => {
         await set(ref(db, "/products/" + productID), {
             id: productID,
             createdAt: date,
             createdWho: currentUid,
-            title: title,
-            description: description,
-            category: category,
-            price: price,
-            moneytype: moneytype,
+            title: newproduct.title,
+            description: newproduct.description,
+            category: newproduct.category,
+            price: newproduct.price,
+            moneytype: newproduct.moneytype,
+            quantity: newproduct.quantity,
+            shippingtype: newproduct.shippingtype,
             url: url,
         });
     }
@@ -61,15 +63,17 @@ export const ProductContextProvider = ({ children }) => {
             }
         })
     }
-
-    const updateProduct = async (product, title, description, category, price, moneytype, url) => {
+    //* Ürünü Güncelleme
+    const updateProduct = async (updateProductInputValue, product, url) => {
         try {
             await update(ref(db, `/products/${product}`), {
-                title: title,
-                description: description,
-                category: category,
-                price: price,
-                moneytype: moneytype,
+                title: updateProductInputValue.title,
+                description: updateProductInputValue.description,
+                category: updateProductInputValue.category,
+                price: updateProductInputValue.price,
+                moneytype: updateProductInputValue.moneytype,
+                quantity: updateProductInputValue.quantity,
+                shippingtype: updateProductInputValue.shippingtype,
                 updatedAt: date,
                 url: url
             })
