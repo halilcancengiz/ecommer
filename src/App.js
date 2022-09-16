@@ -12,6 +12,8 @@ import Orders from './components/userprofile/orders/Orders';
 import Settings from './components/userprofile/settings/Settings';
 import Profile from './components/userprofile/profile/Profile';
 import MyProducts from './pages/myproducts/MyProducts';
+import Favorites from './pages/favorites/Favorites';
+
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
           <Route path='orders' element={<Orders />} />
           <Route path='settings' element={<Settings />} />
           <Route path='myproducts' element={<MyProducts />} />
+          <Route path='favorites' element={<Favorites />} />
         </Route>
         <Route path="/basket" element={<Basket />} />
         <Route path="*" element={<NotFound />} />
