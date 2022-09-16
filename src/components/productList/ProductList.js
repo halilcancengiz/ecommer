@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect,memo } from 'react'
+import React, { useEffect, memo } from 'react'
 import "./productlist.css"
 import { useProductContext } from '../../context/ProductContext'
 import { useBasketContext } from '../../context/BasketContext'
@@ -12,13 +12,14 @@ const ProductList = () => {
     const { addProductToBasket, currentBasket } = useBasketContext()
 
     const handleAddProductToBasket = async (product) => {
-        if (currentBasket.some(basket => basket.id === product.id)) {
+        if (currentBasket.some(basket => basket.id === product.id) === true) {
             alertify.error("Ürün Sepette Mevcut")
         }
         else {
             await addProductToBasket(product)
             alertify.success("Ürün Sepete Eklendi")
         }
+        console.log(currentBasket);
     }
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const ProductList = () => {
                     allProducts.length === 0 ? <Loading /> : allProducts.map((product, index) => (
                         <div key={product.id} className="cardContainer mx-4 position-relative my-4">
                             <div className="cardImage w-100">
-                                <img className='w-100 h-100' src="https://www.incehesap.com/resim/urun/202203/62444be1298060.28822987_lmhkpfjgqneoi_500.jpg" alt="product" />
+                                <img className='w-100 h-100' src={product.url} alt="product" />
                             </div>
                             <div className="cardBody d-flex align-items-center flex-column w-100">
                                 <div className="cardHeader">

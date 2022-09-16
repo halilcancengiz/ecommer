@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { useUserContext } from './UserContext';
 import { ref, set, onValue } from 'firebase/database';
 import { db } from '../Firebase';
+import { uuidv4 } from '@firebase/util';
 
 
 const BasketContext = createContext()
@@ -12,7 +13,7 @@ export const BasketContextProvider = ({ children }) => {
 
     const [basket, setBasket] = useState()
     const [currentBasket, setCurrentBasket] = useState([])
-    const basketID = currentBasket.length
+    const basketID = uuidv4()
 
     const addProductToBasket = async (product) => {
         await set(ref(db, `/baskets/${userInfo.uid}/` + basketID), {
@@ -30,7 +31,7 @@ export const BasketContextProvider = ({ children }) => {
 
 
     const getBasketFromDatabase = async () => {
-        await onValue(ref(db, `baskets/${userInfo.uid}`), (snapshot) => {
+        onValue(ref(db, `baskets/${userInfo.uid}`), (snapshot) => {
             const data = snapshot.val()
             let dataList = [];
             if (data !== null && data !== undefined) {
@@ -40,10 +41,7 @@ export const BasketContextProvider = ({ children }) => {
         })
     }
 
-    useEffect(() => {
-        getBasketFromDatabase()
-    }, [])
-
+    
     const values = {
         addProductToBasket,
         getBasketFromDatabase,
