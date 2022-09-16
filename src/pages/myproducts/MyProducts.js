@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState,memo } from 'react'
+import React, { memo } from 'react'
 import { useProductContext } from '../../context/ProductContext'
 import { useUserContext } from '../../context/UserContext'
 import UpdateModal from '../../components/updatemodal/UpdateModal'
@@ -56,49 +56,47 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            filteredProduct.length === 0 ?
-                                null :
-                                filteredProduct.map((myproduct, index) => (
-                                    <tr key={myproduct.id}>
-                                        <td> <img width={80} height={80}
-                                            className="p-2"
-                                            src={myproduct.url}
-                                            alt={myproduct.title} />
-                                        </td>
-                                        <td>
-                                            <span className='d-flex align-items-center justify-content-center'>
-                                                {myproduct.title}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className='d-flex align-items-center justify-content-center'>
-                                                {`${myproduct.description.slice(0, 15)} ...`}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className='d-flex align-items-center justify-content-center'>
-                                                {myproduct.category}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className='d-flex align-items-center justify-content-center'>
-                                                {`${myproduct.price} TL`}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className='d-flex align-items-center justify-content-center'>
-                                                <UpdateModal myproduct={myproduct} />
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span className='d-flex align-items-center justify-content-center'>
-                                                <button className='bg-danger px-3 py-1 text-white rounded-pill' onClick={() => handleDelete(myproduct)}>
-                                                    <i className="fa-solid fa-trash-can "></i>
-                                                </button>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                ))
+                            filteredProduct.length === 0 ? null : filteredProduct.map((myproduct, index) => (
+                                <tr key={myproduct.id}>
+                                    <td> <img width={80} height={80}
+                                        className="p-2"
+                                        src={myproduct.url}
+                                        alt={myproduct.title} />
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            {myproduct.title}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            {`${myproduct.description.slice(0, 15)} ...`}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            {myproduct.category}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            {`${myproduct.price} TL`}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            <UpdateModal myproduct={myproduct} />
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            <button className='bg-danger px-3 py-1 text-white rounded-pill' onClick={() => handleDelete(myproduct)}>
+                                                <i className="fa-solid fa-trash-can "></i>
+                                            </button>
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))
                         }
                     </tbody>
                 </table>
