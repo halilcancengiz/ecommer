@@ -2,12 +2,13 @@ import React, { useEffect, memo } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import "./navbar.css"
 import { useUserContext } from '../../context/UserContext'
+import { useBasketContext } from '../../context/BasketContext'
 import alertify from 'alertifyjs';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const { logout, setIsLoggedIn, isLoggedIn, visitor } = useUserContext()
-
+    const { currentBasket, getBasketFromDatabase } = useBasketContext()
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,6 +25,7 @@ const Navbar = () => {
             localStorage.setItem("isLoggedIn", "false")
             setIsLoggedIn("false")
         }
+        getBasketFromDatabase()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLoggedIn])
 
@@ -57,6 +59,7 @@ const Navbar = () => {
                             <ul className="dropdown-menu bg-dark border-0">
                                 <li><NavLink className="dropdown-item text-white" to="/profile">Profile</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/myproducts">My Products</NavLink></li>
+                                <li><NavLink className="dropdown-item text-white" to="/profile/favorites">Favorites</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/orders">Orders</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/addproduct">Add Product</NavLink></li>
                                 <li><NavLink className="dropdown-item text-white" to="/profile/settings">Settings</NavLink></li>
@@ -64,7 +67,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
-                        <NavLink className="navlink my-auto" to="/basket"><span id='basketCount' className="badge bg-white text-dark me-2">0</span>Basket</NavLink>
+                        <NavLink className="navlink my-auto" to="/basket"><span id='basketCount' className="badge bg-white text-dark me-2">{currentBasket.length}</span>Basket</NavLink>
                     </div>
                 </div>
             </div>
