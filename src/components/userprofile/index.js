@@ -10,7 +10,7 @@ const UserProfile = () => {
     return (
         <div style={{minHeight:"100vh"}}>
             <Navbar />
-            <div className='outletContainer mx-auto'>
+            <div className='outletContainer mx-auto h-100'>
                 <Outlet />
             </div>
         </div>
