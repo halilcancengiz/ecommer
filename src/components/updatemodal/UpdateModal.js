@@ -1,18 +1,25 @@
 import React, { useState, memo } from 'react'
 import { useProductContext } from '../../context/ProductContext'
 import "./updatemodal.css"
-import MyProducts from './../../pages/myproducts/MyProducts';
-import  alertify  from 'alertifyjs';
+import alertify from 'alertifyjs';
 
 const UpdateModal = ({ myproduct }) => {
-    const { updateProduct } = useProductContext()
+    const { updateProduct, convertBase64, setBase64Image, base64Image } = useProductContext()
     const [isEdit, setIsEdit] = useState(false)
     const [updateProductInputValue, setUpdateProductInputValue] = useState({
         title: myproduct.title,
         description: myproduct.description,
         category: myproduct.category,
         price: myproduct.price,
+        moneytype: myproduct.moneytype,
+        url: myproduct.url
     })
+
+    const uploadNewImage = async (e) => {
+        const file = e.target.files[0]
+        const base64 = await convertBase64(file)
+        setBase64Image(base64)
+    }
 
     const openUpdateModal = (e) => {
         setIsEdit(true)
@@ -27,7 +34,14 @@ const UpdateModal = ({ myproduct }) => {
         setUpdateProductInputValue({ ...updateProductInputValue, [e.target.name]: e.target.value })
     }
     const handleUpdateSubmit = async (e, myproduct) => {
-        updateProduct(myproduct, updateProductInputValue.title, updateProductInputValue.description, updateProductInputValue.category, updateProductInputValue.price)
+        if (base64Image === "") {
+            updateProduct(myproduct, updateProductInputValue.title, updateProductInputValue.description, updateProductInputValue.category, updateProductInputValue.price, updateProductInputValue.moneytype,updateProductInputValue.url)
+        }
+        else {
+            updateProduct(myproduct, updateProductInputValue.title, updateProductInputValue.description, updateProductInputValue.category, updateProductInputValue.price, updateProductInputValue.moneytype, base64Image)
+            setBase64Image("")
+        }
+
         setIsEdit(false)
         e.preventDefault()
     }
@@ -52,6 +66,13 @@ const UpdateModal = ({ myproduct }) => {
                             <option value="Diğer">Diğer</option>
                         </select>
                         <input onChange={handleChangeUpdatedProduct} value={updateProductInputValue.price} className='mt-3' type="text" name='price' placeholder={myproduct.price} />
+                        <select onChange={handleChangeUpdatedProduct} value={updateProductInputValue.moneytype} name="moneytype" className='mt-3'>
+                            <option value={myproduct.moneytype} hidden>{myproduct.moneytype}</option>
+                            <option value="₺">₺</option>
+                            <option value="€">€</option>
+                            <option value="$">$</option>
+                        </select>
+                        <input onChange={(e) => uploadNewImage(e)} accept="image/*" type="file" name='image' className='mt-3 border-0 p-1 ' />
                         <button onClick={closeUpdateModal} id='closeUpdateModalButton'>
                             <i className="fa-solid fa-xmark"></i>
                         </button>
