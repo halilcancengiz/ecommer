@@ -6,7 +6,7 @@
   transform: translate(-50%, -50%);
 }
 .updateModalForm {
-  height: 400px;
+  height: 450px;
   position: absolute;
   box-shadow: 0 0 10px rgb(58, 58, 58);
 }
