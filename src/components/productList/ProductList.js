@@ -13,13 +13,12 @@ const ProductList = () => {
 
     const handleAddProductToBasket = async (product) => {
         if (currentBasket.some(basket => basket.id === product.id) === true) {
-            alertify.error("Ürün Sepette Mevcut")
+            alertify.error("Ürün Sepette Mevcut",1.5)
         }
         else {
             await addProductToBasket(product)
-            alertify.success("Ürün Sepete Eklendi")
+            alertify.success("Ürün Sepete Eklendi",1.5)
         }
-        console.log(currentBasket);
     }
 
     useEffect(() => {

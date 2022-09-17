@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom';
 const UserProfile = () => {
     
     return (
-        <div style={{minHeight:"100vh"}}>
+        <div>
             <Navbar />
             <div className='outletContainer mx-auto h-100'>
                 <Outlet />
