@@ -1,3 +1,31 @@
-.basketProductContainer{
-    height: 200px;
+.basketProductContainer {
+  box-shadow: 0 5px 15px #00000063;
+  min-height: 200px;
+  border-radius: 10px;
+}
+#shoppingbasketHeaderContainer {
+  box-shadow: 0 5px 15px #00000063;
+  border-radius: 10px;
+}
+#shoppingbasketHeaderContainer h6 {
+  color: #4079FF;
+}
+#shoppingbasketHeaderContainer button {
+  padding: 3px;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+}
+.basketProductQuantity button {
+  height: 30px;
+  width: 30px;
+  border: none;
+}
+
+@media only screen and (max-width: 575px) {
+  .basketProductTitleContainer,.basketProductInfoContainer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
 }
