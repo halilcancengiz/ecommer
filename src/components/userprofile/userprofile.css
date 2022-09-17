@@ -1,5 +1,6 @@
 .outletContainer {
-  width: 75% !important;
+  width: 100% !important;
+  height: 100%!important;
 }
 .accordion {
   width: 180px;
