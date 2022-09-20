@@ -1,0 +1,53 @@
+#memberShipPageContainer {
+  background: #92C3ED
+}
+
+.membershipContainer {
+  width: 450px;
+  min-width: 280px;
+  background: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 5px gray;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 560px;
+}
+#memberShipHeader {
+  font-size: 1.2rem;
+}
+#membershipForm > div{
+  border-bottom: 1px solid rgb(195, 191, 191);
+}
+#memberShipHeader button {
+  border: none;
+  background-color: transparent;
+  color: black;
+}
+.membershipForm input {
+  border: none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  padding-left: 10px;
+}
+.membershipForm input::placeholder {
+  color: black;
+}
+.membershipForm input,
+button {
+  height: 35px;
+}
+#signUpButton button {
+  border: none;
+  font-size: 1rem;
+}
+#membershipOtherMethod button {
+  border: none;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+#membershipOtherMethod button i {
+  width: 20px;
+  font-size: 1.1rem;
+}
