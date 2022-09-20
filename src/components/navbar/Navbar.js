@@ -35,7 +35,7 @@ const Navbar = () => {
         await localStorage.setItem("currentUser", JSON.stringify(visitor))
         setIsLoggedIn("false")
         alertify.success("Logout Successful")
-        navigate("/", { replace: true });
+        navigate("/membership", { replace: true });
     }
 
     return (
@@ -50,8 +50,7 @@ const Navbar = () => {
                         <input className='w-100' type="search" placeholder='Search' />
                     </div>
                     <div className="navbar-nav p-0 m-0 pe-0  justify-content-between ms-auto p-0">
-                        <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto"}`} to="/register"><i className="me-2 fa-solid fa-registered"></i>Register</NavLink>
-                        <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto"}`} to="/login"><i className="me-2 fa-solid fa-right-to-bracket"></i>Login</NavLink>
+                        <NavLink className={`${isLoggedIn === "true" ? "loggedin" : "navlink my-auto text-decoration-none"}`} to="/membership"><i className="me-2 fa-solid fa-user"></i>Membership</NavLink>
                         <div className={`${isLoggedIn === "false" ? "loggedin" : "navlink my-auto dropdown me-0"}`}>
                             <button className="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i className="me-1 fa-solid fa-user"></i>
@@ -67,7 +66,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <button className='navlink my-auto'><i className="my-auto me-2 fa-solid fa-bell"></i>Notification</button>
-                        <NavLink className="navlink my-auto" to="/profile/basket"><span id='basketCount' className="badge bg-white text-dark me-2">{currentBasket.length}</span>Basket</NavLink>
+                        <NavLink className="navlink my-auto text-decoration-none" to="/profile/basket"><span id='basketCount' className="badge bg-white text-dark me-2">{currentBasket.length}</span>Basket</NavLink>
                     </div>
                 </div>
             </div>

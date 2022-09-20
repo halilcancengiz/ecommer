@@ -1,6 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import Register from './pages/register/Register';
-import Login from './pages/login/Login';
 import ProductList from './components/productList/ProductList';
 import Home from './pages/home/Home';
 import UserLayout from './components/userprofile';
@@ -12,16 +10,16 @@ import Settings from './components/userprofile/settings/Settings';
 import Profile from './components/userprofile/profile/Profile';
 import MyProducts from './pages/myproducts/MyProducts';
 import Favorites from './pages/favorites/Favorites';
-
-
+import Membership from './pages/membership/Membership';
+import ForgotPassword from './components/forgotpassword/ForgotPassword';
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/profile" element={<UserLayout />}>
           <Route index={true} element={<Profile />} />

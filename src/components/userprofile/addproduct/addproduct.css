@@ -1,5 +1,13 @@
-#addproductForm #productCategory,#moneytype,#shippingtype,
-input,
+#addproductForm input {
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  outline: none;
+}
+
+#productCategory,
+#moneytype,
+#shippingtype,
 #addProductSubmitButton {
   height: 40px;
   border: 1px solid gray;
@@ -14,8 +22,8 @@ input,
 
 #productUrl {
   height: 40px;
-  border: 1px solid gray;
   border-radius: 10px;
   outline: none;
-  border: none;
+  border: none!important;
+  padding: 5px;
 }

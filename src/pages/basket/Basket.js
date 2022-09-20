@@ -47,7 +47,7 @@ const Basket = () => {
         </div>
         <div className='col-12'>
           {currentBasket.length < 0 ? <Loading /> : currentBasket.map(product => (
-            <div className="container w-100 p-0">
+            <div key={product.id} className="container w-100 p-0">
               <div className="basketProductContainer row mt-3 bg-white ">
 
                 <div className="col-lg-3 col-sm-6 col-xs-10 d-flex align-items-center justify-content-center">

@@ -13,6 +13,7 @@
 .dropdown-toggle {
   border: none;
   background-color: transparent;
+  color: #4079ff;
 }
 .searchBar input {
   outline: none;
