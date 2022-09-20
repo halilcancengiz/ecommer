@@ -1,12 +1,15 @@
 import { createContext, useContext, useState } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth";
 import alertify from "alertifyjs";
 import { auth } from './../Firebase';
+import { useNavigate } from 'react-router-dom';
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+    let navigate = useNavigate();
 
+    const [currentProsses, setCurrentProsses] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn"))
     const visitor = [{
         uid: 0,
@@ -21,6 +24,8 @@ export const UserProvider = ({ children }) => {
         try {
             const { user } = await createUserWithEmailAndPassword(auth, email, password)
             alertify.success("Registration Successful", 2)
+            navigate("/membership", { replace: true })
+            setCurrentProsses(true)
             return user;
         } catch (error) {
             alertify.error(`${error}`);
@@ -30,6 +35,10 @@ export const UserProvider = ({ children }) => {
         try {
             const { user } = await signInWithEmailAndPassword(auth, email, password)
             alertify.success("Login successful", 2)
+            localStorage.setItem("currentUser", JSON.stringify(user))
+            localStorage.setItem("isLoggedIn", "true")
+            setIsLoggedIn("true")
+            navigate("/", { replace: true });
             return user;
         } catch (error) {
             alertify.error(`${error}`);
@@ -45,6 +54,10 @@ export const UserProvider = ({ children }) => {
         }
     }
 
+    const forgotPassword = (email) => {
+        return sendPasswordResetEmail(auth, email,{url:'http://localhost:3000/membership'})
+    }
+
     const values = {
         register,
         login,
@@ -52,7 +65,10 @@ export const UserProvider = ({ children }) => {
         isLoggedIn,
         setIsLoggedIn,
         userInfo,
-        visitor
+        visitor,
+        forgotPassword,
+        currentProsses,
+        setCurrentProsses,
     }
 
     return (
