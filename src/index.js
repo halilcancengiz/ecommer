@@ -5,13 +5,15 @@ import App from './App';
 import 'alertifyjs/build/css/alertify.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'antd/dist/antd.min.css';
+import 'antd/dist/antd.min.css';
 import './index.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 import { ProductContextProvider } from './context/ProductContext';
 import { BasketContextProvider } from './context/BasketContext';
+import { FavoritesContextProvider } from './context/FavoritesContext';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,7 +22,9 @@ root.render(
     <UserProvider>
       <ProductContextProvider>
         <BasketContextProvider>
-          <App />
+          <FavoritesContextProvider>
+            <App />
+          </FavoritesContextProvider>
         </BasketContextProvider>
       </ProductContextProvider>
     </UserProvider>
