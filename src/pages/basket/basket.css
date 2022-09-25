@@ -1,6 +1,6 @@
 .basketProductContainer {
   box-shadow: 0 5px 15px #00000063;
-  min-height: 200px;
+  min-height: 150px;
   border-radius: 10px;
 }
 #shoppingbasketHeaderContainer {
@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 #shoppingbasketHeaderContainer h6 {
-  color: #4079FF;
+  color: #4079ff;
 }
 #shoppingbasketHeaderContainer button {
   padding: 3px;
@@ -17,15 +17,29 @@
   font-size: 1.1rem;
 }
 .basketProductQuantity button {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border: none;
+}
+.basketProductImageContainer img {
+  width: 100%;
+  height: auto;
+}
+.confirmBasketButton{
+  background: orange;
+  border-radius: 5px;
+}
+.orderSummary {
+  height: 200px;
+}
+.orderSummary h5 {
+  color: orange;
 }
 
 @media only screen and (max-width: 575px) {
-  .basketProductTitleContainer,.basketProductInfoContainer{
+  .basketProductTitleContainer,
+  .basketProductInfoContainer {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-
 }

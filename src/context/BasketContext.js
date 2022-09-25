@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
 import { useUserContext } from './UserContext';
 import { ref, set, onValue, update } from 'firebase/database';
 import { db } from '../Firebase';
@@ -12,8 +12,9 @@ const BasketContext = createContext()
 
 export const BasketContextProvider = ({ children }) => {
     const { userInfo } = useUserContext()
-    const [basket, setBasket] = useState()
     const [currentBasket, setCurrentBasket] = useState([])
+    const [isClicked, setIsClicked] = useState(false)
+    const [isRemove, setIsRemove] = useState(false)
     const productCount = 1
 
     const addProductToBasket = async (product) => {
@@ -34,36 +35,38 @@ export const BasketContextProvider = ({ children }) => {
         });
     }
 
-    const increaseProductCount = async (product) => {
+    const increaseProductCount = useCallback((product) => {
         if (product.productCount < product.quantity) {
-            await update(ref(db, `/baskets/${userInfo.uid}/${product.id}`), {
+            update(ref(db, `/baskets/${userInfo.uid}/${product.id}`), {
                 productCount: product.productCount + 1
             })
         } else {
             alertify.error(`Bu ürün için en fazla ${product.quantity} sipariş verebilirsiniz.`)
         }
 
-    }
-    const decreaseProductCount = async (product) => {
+    }, [productCount])
+
+
+    const decreaseProductCount = useCallback((product) => {
         if (product.productCount > 1) {
-            await update(ref(db, `/baskets/${userInfo.uid}/${product.id}`), {
+            update(ref(db, `/baskets/${userInfo.uid}/${product.id}`), {
                 productCount: product.productCount - 1
             })
         }
-
         else {
             alertify.confirm('Ürünü Kaldırmak İstediğinize Emin Misiniz ?',
                 function () {
                     deleteProductFromBasket(product)
                     alertify.success('Ürün Sepetten Kaldırıldı', 1.5)
+                    setIsRemove(!isRemove)
                 },
                 function () {
                     alertify.error('Ürün Kaldırma İşlemi İptal Edildi', 1.5)
                 });
         }
+    }, [productCount])
 
 
-    }
 
     const clearBasket = async () => {
         try {
@@ -81,7 +84,7 @@ export const BasketContextProvider = ({ children }) => {
         }
     }
 
-    const getBasketFromDatabase = async () => {
+    const getBasketFromDatabase = () => {
         onValue(ref(db, `baskets/${userInfo.uid}`), (snapshot) => {
             const data = snapshot.val()
             let dataList = [];
@@ -100,7 +103,12 @@ export const BasketContextProvider = ({ children }) => {
         clearBasket,
         deleteProductFromBasket,
         increaseProductCount,
-        decreaseProductCount
+        decreaseProductCount,
+        productCount,
+        isClicked,
+        setIsClicked,
+        isRemove,
+        setIsRemove
     }
 
 
