@@ -11,13 +11,14 @@ export const UserProvider = ({ children }) => {
 
     const [currentProsses, setCurrentProsses] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn"))
+    const [userInfo,setUserInfo]=useState(JSON.parse(localStorage.getItem("currentUser")))
+    
     const visitor = [{
         uid: 0,
         providerData: [{
             email: "visitor.profile@gmail.com"
         }]
     }]
-    const userInfo = JSON.parse(localStorage.getItem("currentUser"))
 
 
     const register = async (email, password) => {
