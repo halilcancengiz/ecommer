@@ -1,14 +1,19 @@
 import React, { memo } from 'react'
 import { NavLink } from 'react-router-dom'
-import Home from '../../pages/home/Home'
+import { Button, Result } from 'antd';
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>Aradığınız Sayfa Bulunamadı</h1>
-            <p>Ana Sayfaya Dönmek İçin <NavLink to="/" element={<Home />}>tıklayın...</NavLink></p>
-
+        <div style={{minHeight:"100vh"}}>
+            <Result
+                status="404"
+                title="404"
+                subTitle="Sorry, the page you visited does not exist."
+                extra={<Button type="primary"><NavLink to="/">Back To Home Page</NavLink></Button>}
+                className="notFound"
+            />
         </div>
+
     )
 }
 
