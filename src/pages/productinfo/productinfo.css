@@ -1,0 +1,58 @@
+.otherImage {
+  width: 25% !important;
+  height: 100%;
+  cursor: pointer;
+}
+.singleProductInfoHeader h3 {
+  color: orange;
+}
+
+.productInfoMainImage {
+  position: relative;
+}
+.productInfoMainImage > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 15%;
+  height: 40px;
+  background-color: royalblue;
+  color: white;
+  border-radius: 5px;
+}
+.userAvatar {
+  height: 60px;
+  width: 60px;
+}
+.userCommentContainer {
+  background-color: #a9aec2;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 20px;
+}
+.userAvatar {
+  margin-right: 25px;
+}
+.commentCreated {
+  margin-left: 25px;
+  margin-right: 50px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 550px) {
+  .userCommentHeader{
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .userAvatar{
+    margin-right: 0!important;
+  }
+  .commentCreated{
+    align-items: center;
+    margin: 0!important;
+  }
+}
