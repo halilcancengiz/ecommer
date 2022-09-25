@@ -22,8 +22,9 @@ const MyProducts = () => {
         { id: 3, value: "description" },
         { id: 4, value: "Category" },
         { id: 5, value: "Price" },
-        { id: 6, value: "Edit" },
-        { id: 7, value: "Delete" },
+        { id: 6, value: "Quantity" },
+        { id: 7, value: "Edit" },
+        { id: 8, value: "Delete" },
     ]
 
     useEffect(() => {
@@ -81,6 +82,11 @@ const MyProducts = () => {
                                     <td>
                                         <span className='d-flex align-items-center justify-content-center'>
                                             {`${myproduct.price} TL`}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span className='d-flex align-items-center justify-content-center'>
+                                            {`${myproduct.quantity}`}
                                         </span>
                                     </td>
                                     <td>

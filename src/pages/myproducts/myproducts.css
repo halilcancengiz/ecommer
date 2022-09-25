@@ -44,6 +44,15 @@ tbody td button {
   border: none;
   background-color: transparent;
 }
+tbody td {
+  overflow: hidden;
+}
+tbody td img{
+  transition: all .5s ease-in-out;
+}
+tbody td img:hover{
+  transform: scale(1.2);
+}
 tbody td i {
   cursor: pointer;
   font-size: 17px;
