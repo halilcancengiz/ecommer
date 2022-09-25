@@ -14,7 +14,7 @@ body {
 }
 .App {
   text-align: center;
-  background: rgb(242, 242, 242);
+  background: #E9E8E4;
 }
 .ajs-error,
 .ajs-success {
@@ -26,9 +26,9 @@ body {
 .ajs-header {
   color: transparent;
 }
-.line-clamp4 {
+.line-clamp3 {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -36,4 +36,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.notFound{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
