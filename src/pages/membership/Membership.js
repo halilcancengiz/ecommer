@@ -60,11 +60,11 @@ const Register = () => {
             <div className="membershipContainer">
 
                 <div id='memberShipHeader' className='w-100 d-flex align-items-center-justify-content-between flex-row'>
-                    <div onClick={() => setCurrentProsses(false)} className={`${currentProsses === false ? "w-100 h-100 d-flex align-items-center justify-content-center" : "w-100 h-100 d-flex align-items-center justify-content-center bg-dark"}`}>
-                        <button ref={toggleSignUpRef} className={`${currentProsses === true ? "text-white w-100 h-100 my-4" : "w-100 h-100 my-4"}`}>Sign Up</button>
+                    <div onClick={() => setCurrentProsses(false)} className={`${currentProsses === false ? "w-100 h-100 d-flex align-items-center justify-content-center" : "w-100 h-100 d-flex align-items-center justify-content-center softblue"}`}>
+                        <button ref={toggleSignUpRef} className={`${currentProsses === true ? "text-white w-100 h-100 my-4" : "w-100 h-100 my-4 text-softblue"}`}>Register</button>
                     </div>
-                    <div onClick={() => setCurrentProsses(true)} className={`${currentProsses === false ? "w-100 h-100 d-flex align-items-center justify-content-center bg-dark" : "w-100 h-100 d-flex align-items-center justify-content-center"}`}>
-                        <button ref={toggleSignInRef} className={`${currentProsses === false ? "text-white w-100 h-100 my-4" : "w-100 h-100 my-4"}`}>Sign In</button>
+                    <div onClick={() => setCurrentProsses(true)} className={`${currentProsses === false ? "w-100 h-100 d-flex align-items-center justify-content-center softblue" : "w-100 h-100 d-flex align-items-center justify-content-center"}`}>
+                        <button ref={toggleSignInRef} className={`${currentProsses === false ? "text-white w-100 h-100 my-4" : "w-100 h-100 my-4 text-softblue"}`}>Login</button>
                     </div>
                 </div>
 
@@ -84,23 +84,23 @@ const Register = () => {
                         <input onChange={handleRegister} value={userRegister.rePassword} name="signuprePassword" ref={visibleSignUpRePasswordRef} className='w-100' type="password" placeholder='Re-Password' />
                         <i onClick={handleVisibleSignUpRePassword} className={`${visibleSignUpRePassword === true ? "fa-solid fa-eye text-dark" : "fa-solid fa-eye-slash text-dark"}`}></i>
                     </div>
-                    <button id='signUpButton' type='submit' className='mt-4 bg-dark text-white'>Sign Up</button>
+                    <button id='signUpButton' type='submit' className='mt-3 softblue border-0 text-white'>Register</button>
 
                 </form>
-                <div id='membershipOtherMethod' className={`${currentProsses === false ? "w-100 px-5" : "d-none"}`}>
-                    <h6 className='text-dark my-4 fs-5'>OR</h6>
-                    <button className='d-flex align-items-center justify-content-start w-100 bg-danger text-white'>
-                        <i className="fa-brands fa-google mx-3"></i>
-                        <span>Sign Up With Google</span>
-                    </button>
-                    <button className='d-flex align-items-center justify-content-start w-100 mt-2 bg-primary text-white'>
-                        <i className="fa-brands fa-facebook-f mx-3"></i>
-                        <span>Sign Up With Facebook</span>
-                    </button>
-                    <button className='d-flex align-items-center justify-content-start w-100 mt-2 bg-info text-white'>
-                        <i className="fa-brands fa-twitter mx-3"></i>
-                        <span>Sign Up With Twitter</span>
-                    </button>
+                <div className={`${currentProsses === false ? "w-100 px-5 membershipOtherMethod" : "d-none"}`}>
+                    <h6 className='text-softblue my-4 fs-5 line'><span className='px-4'>OR</span></h6>
+                    <div className='d-flex align-items-center justify-content-center'>
+                        <button className='d-flex align-items-center justify-content-center mx-2 softred text-white rounded-circle'>
+                            <i className="fa-brands fa-google"></i>
+                        </button>
+                        <button className='d-flex align-items-center justify-content-center mx-2 softblue text-white rounded-circle'>
+                            <i className="fa-brands fa-facebook-f "></i>
+                        </button>
+                        <button className='d-flex align-items-center justify-content-center mx-2 softlightblue text-white rounded-circle'>
+                            <i className="fa-brands fa-twitter "></i>
+                        </button>
+                    </div>
+
                     <div className='mt-3'>
                         <NavLink className="text-decoration-none" to="/">Back To Main Page</NavLink>
                     </div>
@@ -119,23 +119,23 @@ const Register = () => {
                         <input onChange={handleUserLogin} value={userLogin.password} name="signinpassword" ref={visibleSignInPasswordRef} className='w-100' type="password" placeholder='Password' />
                         <i onClick={handleVisibleSignInPassword} className={`${visibleSignInPassword === true ? "fa-solid fa-eye text-dark" : "fa-solid fa-eye-slash text-dark"}`}></i>
                     </div>
-                    <button type='submit' className='mt-4 bg-dark text-white'>Sign In</button>
+                    <button type='submit' className='mt-4 softblue border-0 text-white'>Login</button>
                     <NavLink className="text-decoration-none mt-2" to="/forgot-password">Forgot Password ?</NavLink>
                 </form>
-                <div id='membershipOtherMethod' className={`${currentProsses === true ? "w-100 px-5" : "d-none"}`}>
-                    <h6 className='text-dark my-4 fs-5'>OR</h6>
-                    <button className='d-flex align-items-center justify-content-start w-100 bg-danger text-white'>
-                        <i className="fa-brands fa-google mx-3"></i>
-                        <span>Login With Google</span>
-                    </button>
-                    <button className='d-flex align-items-center justify-content-start w-100 mt-2 bg-primary text-white'>
-                        <i className="fa-brands fa-facebook-f mx-3"></i>
-                        <span>Login With Facebook</span>
-                    </button>
-                    <button className='d-flex align-items-center justify-content-start w-100 mt-2 bg-info text-white'>
-                        <i className="fa-brands fa-twitter mx-3"></i>
-                        <span>Login With Twitter</span>
-                    </button>
+                <div  className={`${currentProsses === true ? "w-100 px-5 membershipOtherMethod" : "d-none"}`}>
+                    <h6 className='fs-5 line my-3'><span className='px-4'>OR</span></h6>
+                    <div className='d-flex align-items-center justify-content-center rounded-circle'>
+                        <button className='d-flex align-items-center justify-content-start mx-2  softred text-white rounded-circle'>
+                            <i className="fa-brands fa-google"></i>
+                        </button>
+                        <button className='d-flex align-items-center justify-content-start mx-2 softblue text-white rounded-circle'>
+                            <i className="fa-brands fa-facebook-f"></i>
+                        </button>
+                        <button className='d-flex align-items-center justify-content-start mx-2 softlightblue text-white rounded-circle'>
+                            <i className="fa-brands fa-twitter"></i>
+                        </button>
+                    </div>
+
                     <div className='mt-3'>
                         <NavLink className="text-decoration-none" to="/">Back To Main Page</NavLink>
                     </div>

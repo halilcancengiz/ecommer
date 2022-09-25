@@ -1,22 +1,23 @@
-#memberShipPageContainer {
-  background: #92C3ED
+#memberShipPageContainer{
+  background: linear-gradient(250deg, #9fb4da, #425d8e);
 }
-
 .membershipContainer {
-  width: 450px;
+  width: 400px;
   min-width: 280px;
   background: white;
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 0 0 5px gray;
+  box-shadow: 0 0 10px black;
   border-radius: 10px;
   overflow: hidden;
-  height: 560px;
+  height: 450px;
+  position: absolute;
+  transition: all .5s ease-in-out;
 }
 #memberShipHeader {
   font-size: 1.2rem;
 }
-#membershipForm > div{
+#membershipForm > div {
   border-bottom: 1px solid rgb(195, 191, 191);
 }
 #memberShipHeader button {
@@ -24,6 +25,7 @@
   background-color: transparent;
   color: black;
 }
+
 .membershipForm input {
   border: none;
   background-color: transparent;
@@ -37,17 +39,70 @@
 .membershipForm input,
 button {
   height: 35px;
+  transition: all 0.5s ease-in-out;
+}
+.membershipForm button:hover {
+  transform: scale(1.05);
 }
 #signUpButton button {
   border: none;
   font-size: 1rem;
 }
-#membershipOtherMethod button {
+.membershipOtherMethod button {
   border: none;
   font-size: 1rem;
-  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  transition: all 0.5s ease-in-out;
 }
-#membershipOtherMethod button i {
-  width: 20px;
+.membershipOtherMethod button:hover {
+  transform: scale(1.2);
+}
+.membershipOtherMethod button i {
+  width: 100%;
   font-size: 1.1rem;
+}
+.softblue {
+  background: #3e4e6b;
+}
+.softred {
+  background: #b54d4e;
+}
+.softlightblue {
+  background: #5c80c4;
+}
+
+.text-softblue {
+  color: #3e4e6b !important;
+}
+
+.line{
+  position: relative;
+  z-index: 0;
+}
+.line::before{
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 2px;
+  width: 120px;
+  background: #3e4e6b;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+}
+.line::after{
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 2px;
+  width: 120px;
+  background: #3e4e6b;
+  top: 50%;
+  right: 0;
+  z-index: -1;
+}
+.line span{
+  background: white;
+  color: #3e4e6b;
 }
