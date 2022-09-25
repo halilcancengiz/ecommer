@@ -16,6 +16,15 @@
 }
 .cardImage {
   height: 164px;
+  transform: scale(1);
+  transition: all .5s ease-in-out;
+  overflow: hidden!important;
+}
+.cardImage img{
+  transition: all .5s ease-in-out;
+}
+.cardImage img:hover{
+  transform: scale(1.4);
 }
 .cardBody {
   height: 155px;
@@ -55,6 +64,7 @@
   border: 1px solid orange;
   color: rgba(255, 166, 0, 0.459);
   background: transparent;
+  cursor: pointer;
 }
 .cardFavorite .fa-heart{
     transition: all .5s ease-in-out;
@@ -72,4 +82,15 @@
   bottom: 0;
   left: 0;
   transition: all .2s ease-in-out;
+}
+.rate{
+  position: absolute;
+  top: 82%;
+  left: 0;
+  font-size: 15px!important;
+  color: orange!important;
+  padding-left: 15px!important;
+}
+.rate::after{
+  content: "(17)";
 }

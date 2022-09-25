@@ -34,20 +34,23 @@ export const ProductContextProvider = ({ children }) => {
     }
 
     //* Tüm Ürünleri Veritabanından Çekme
-    const getProductsFromDatabase = async () => {
-        await onValue(ref(db, "products"), (snapshot) => {
+    const getProductsFromDatabase = () => {
+        onValue(ref(db, "products"), (snapshot) => {
             const data = snapshot.val()
             let dataList = [];
             if (data !== null && data !== undefined) {
                 dataList = Object.values(data);
             }
             setAllProducts(dataList)
+
         })
+        console.log("getProductsFromDatabase Rendered");
     }
 
     //* Ürünü Veritabanından Silme
     const deleteProduct = async (product) => {
         await remove(ref(db, `/products/${product}`))
+        console.log("deleteProduct Rendered");
     }
 
     //* Image Dosyalarını Base64 Versiyonuna Çevirme
@@ -82,6 +85,7 @@ export const ProductContextProvider = ({ children }) => {
             console.log(error)
             alertify.error("Ürün Güncelleme İşlemi Başarısız")
         }
+        console.log("updateProduct Rendered");
     }
 
 
@@ -93,7 +97,7 @@ export const ProductContextProvider = ({ children }) => {
         updateProduct,
         convertBase64,
         setBase64Image,
-        base64Image
+        base64Image,
     }
     return (
         <ProductContext.Provider value={values}>
